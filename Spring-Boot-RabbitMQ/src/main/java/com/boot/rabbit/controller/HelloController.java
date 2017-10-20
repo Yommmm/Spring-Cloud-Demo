@@ -15,6 +15,7 @@ public class HelloController {
 	@GetMapping("/send")
 	public String send() {
 		helloSender.send();
+		helloSender.send2();
 		return "success";
 	}
 	

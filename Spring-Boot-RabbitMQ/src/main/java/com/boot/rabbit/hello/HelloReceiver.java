@@ -16,7 +16,7 @@ public class HelloReceiver {
 	
 	@RabbitHandler
 	public void process(Map<String, String> hello) {
-		logger.info("Recevier: " + hello.get("hello"));
+		logger.info("Recevier1: " + hello.get("hello"));
 	}
 	
 }

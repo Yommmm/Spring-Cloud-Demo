@@ -24,7 +24,15 @@ public class HelloSender {
 		String hello = "hello" + (new Date()).getTime();
 		Map<String, String> context = new HashMap<String, String>();
 		context.put("hello", hello);
-		logger.info("Sender: " + context.get("hello"));
+		logger.info("Sender1: " + context.get("hello"));
+		rabbitTemplate.convertAndSend(RabbitConstant.HELLO_QUEUE, context);
+	}
+	
+	public void send2() {
+		String hello = "hello" + (new Date()).getTime();
+		Map<String, String> context = new HashMap<String, String>();
+		context.put("hello", hello);
+		logger.info("Sender2: " + context);
 		rabbitTemplate.convertAndSend(RabbitConstant.HELLO_QUEUE, context);
 	}
 	

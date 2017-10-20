@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>Spring-Boot-RabbitMQ</name>
-	<description>SpringBoot-RabbitMQ</description>
+	<description>Spring-Boot-RabbitMQ</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -54,6 +54,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>
