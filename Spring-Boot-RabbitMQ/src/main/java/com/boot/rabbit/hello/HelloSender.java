@@ -1,6 +1,8 @@
 package com.boot.rabbit.hello;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,8 +21,10 @@ public class HelloSender {
 	private AmqpTemplate rabbitTemplate;
 	
 	public void send() {
-		String context = "hello" + (new Date()).getTime();
-		logger.info("Sender: " + context);
+		String hello = "hello" + (new Date()).getTime();
+		Map<String, String> context = new HashMap<String, String>();
+		context.put("hello", hello);
+		logger.info("Sender: " + context.get("hello"));
 		rabbitTemplate.convertAndSend(RabbitConstant.HELLO_QUEUE, context);
 	}
 	
