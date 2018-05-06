@@ -20,6 +20,12 @@ public class HelloController {
 	@Autowired
 	private FanoutSender fanoutSender;
 	
+	@GetMapping("/object")
+	public String objectSend() {
+		helloSender.sendObject();
+		return "send hello success";
+	}
+	
 	@GetMapping("/hello")
 	public String send() {
 		helloSender.send();

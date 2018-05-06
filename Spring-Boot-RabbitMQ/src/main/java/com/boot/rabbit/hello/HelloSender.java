@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.boot.rabbit.constant.RabbitConstant;
+import com.boot.rabbit.vo.User;
 
 @Component
 public class HelloSender {
@@ -34,6 +35,14 @@ public class HelloSender {
 		context.put("hello", hello);
 		logger.info("Sender2: " + context);
 		rabbitTemplate.convertAndSend(RabbitConstant.HELLO_QUEUE, context);
+	}
+	
+	public void sendObject() {
+		User user = new User();
+		user.setName("AAA");
+		user.setAge("BBB");
+		user.setAddress("CCC");
+		rabbitTemplate.convertAndSend(RabbitConstant.HELLO_QUEUE, "");
 	}
 	
 }
