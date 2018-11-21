@@ -15,7 +15,23 @@ public class EmpService {
 	private EmpMapper empMapper;
 	
 	public List<Emp> list() {
-		return empMapper.findAll();
+		return empMapper.list();
+	}
+	
+	public Emp getOne(String empId) {
+		return empMapper.getOne(empId);
+	}
+	
+	public Emp save(Emp emp) {
+		return empMapper.insert(emp);
+	}
+	
+	public Emp update(Emp emp) {
+		return empMapper.update(emp);
+	}
+	
+	public Emp delete(String empId) {
+		return empMapper.delete(empId);
 	}
 	
 }

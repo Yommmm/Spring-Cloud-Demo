@@ -28,25 +28,25 @@ public class EmpController {
 	@PostMapping
 	public Result save(@RequestBody Emp emp) {
 		logger.info(emp.toString());
-		return Result.ToResult("");
+		return Result.ToResult(empService.save(emp));
 	}
 	
 	@PutMapping
 	public Result update(@RequestBody Emp emp) {
 		logger.info(emp.toString());
-		return Result.ToResult("");
+		return Result.ToResult(empService.update(emp));
 	}
 	
 	@DeleteMapping("/{empId}")
 	public Result delete(@PathVariable String empId) {
 		logger.info(empId);
-		return Result.ToResult("");
+		return Result.ToResult(empService.delete(empId));
 	}
 	
 	@GetMapping("/{empId}")
 	public Result query(@PathVariable String empId) {
 		logger.info(empId);
-		return Result.ToResult("");
+		return Result.ToResult(empService.getOne(empId));
 	}
 	
 	@GetMapping("/list")

@@ -13,13 +13,25 @@ import com.boot.entity.Emp;
 public interface EmpMapper {
 
 	/**
+	 * 但是如下这么些玩意儿，感觉不如简洁的小毛驴方式实在
+	 * 
 	 * @Select 查询
 	 * @Result 修饰返回的结果集，关联实体类属性和数据库字段一一对应，如果实体类属性和数据库属性名保持一致，就不需要这个属性来修饰。
 	 * @Insert 插入
 	 * @Update 修改，也可以直接传入对象
 	 * @Delete 删除
 	 */
-	@Select("SELECT t.* FROM emp_bean t")
+	@Select("SELECT t.* FROM emp t")
 	List<Emp> findAll();
+	
+	List<Emp> list();
+	
+	Emp getOne(String empId);
+	
+	Emp insert(Emp emp);
+	
+	Emp update(Emp emp);
+	
+	Emp delete(String empId);
 	
 }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boot.mapper.EmpMapper">
+	<resultMap id="BaseResultMap" type="com.boot.entity.Emp">
+		<id column="emp_id" property="empId" jdbcType="VARCHAR" />
+		<result column="emp_code" property="empCode" jdbcType="VARCHAR" />
+		<result column="emp_name" property="empName" jdbcType="VARCHAR" />
+		<result column="emp_id_card" property="empIdCard" jdbcType="VARCHAR" />
+		<result column="emp_addr" property="empAddr" jdbcType="VARCHAR" />
+		<result column="salar" property="salar" jdbcType="DOUBLE" />
+		<result column="active" property="active" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="VARCHAR" />
+		<result column="create_time" property="createTime" jdbcType="TIME" />
+	</resultMap>
+
+	<sql id="COLUMN_LIST">
+		emp_id, emp_code, emp_name, emp_id_card, emp_addr, salar, active, status, create_time
+	</sql>
+
+	<select id="list" resultMap="BaseResultMap">
+		SELECT
+		<include refid="COLUMN_LIST" />
+		FROM emp
+	</select>
+
+	<select id="getOne" parameterType="java.lang.String" resultMap="BaseResultMap">
+		SELECT
+		<include refid="COLUMN_LIST" />
+		FROM emp
+		WHERE emp_id = #{empId}
+	</select>
+
+	<insert id="insert" parameterType="com.boot.entity.Emp">
+		INSERT INTO
+		emp
+		(<include refid="COLUMN_LIST" />)
+		VALUES
+		(#{empId}, #{empCode}, #{empName}, #{empIdCard}, #{empAddr}, #{salar}, #{active}, #{status}, #{userSex}, #{createTime})
+	</insert>
+
+	<update id="update" parameterType="com.boot.entity.Emp">
+		UPDATE
+		emp
+		SET
+		<if test="empCode != null">emp_code = #{empCode},</if>
+		<if test="empName != null">emp_name = #{empName},</if>
+		<if test="empIdCard != null">emp_id_card = #{empIdCard},</if>
+		<if test="empAddr != null">emp_addr = #{empAddr},</if>
+		<if test="salar != null">salar = #{salar},</if>
+		<if test="active != null">active = #{active},</if>
+		<if test="status != null">status = #{status},</if>
+		<if test="userSex != null">user_sex = #{userSex},</if>
+		<if test="createTime != null">create_time = #{createTime},</if>
+		emp_id = #{empId}
+		WHERE
+		emp_id = #{empId}
+	</update>
+
+	<delete id="delete" parameterType="java.lang.String">
+		DELETE FROM
+		emp
+		WHERE
+		id = #{empId}
+	</delete>
+</mapper>
