@@ -30,15 +30,15 @@
 		WHERE emp_id = #{empId}
 	</select>
 
-	<insert id="insert" parameterType="com.boot.entity.Emp">
+	<insert id="insert">
 		INSERT INTO
 		emp
 		(<include refid="COLUMN_LIST" />)
 		VALUES
-		(#{empId}, #{empCode}, #{empName}, #{empIdCard}, #{empAddr}, #{salar}, #{active}, #{status}, #{userSex}, #{createTime})
+		(#{empId}, #{empCode}, #{empName}, #{empIdCard}, #{empAddr}, #{salar}, #{active}, #{status}, #{createTime})
 	</insert>
 
-	<update id="update" parameterType="com.boot.entity.Emp">
+	<update id="update">
 		UPDATE
 		emp
 		SET
@@ -49,7 +49,6 @@
 		<if test="salar != null">salar = #{salar},</if>
 		<if test="active != null">active = #{active},</if>
 		<if test="status != null">status = #{status},</if>
-		<if test="userSex != null">user_sex = #{userSex},</if>
 		<if test="createTime != null">create_time = #{createTime},</if>
 		emp_id = #{empId}
 		WHERE

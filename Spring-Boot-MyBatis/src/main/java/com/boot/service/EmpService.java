@@ -1,6 +1,7 @@
 package com.boot.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,15 +24,19 @@ public class EmpService {
 	}
 	
 	public Emp save(Emp emp) {
-		return empMapper.insert(emp);
+		emp.setEmpId(UUID.randomUUID().toString().replace("-", ""));
+		empMapper.insert(emp);
+		return emp;
 	}
 	
 	public Emp update(Emp emp) {
-		return empMapper.update(emp);
+		empMapper.update(emp);
+		return emp;
 	}
 	
-	public Emp delete(String empId) {
-		return empMapper.delete(empId);
+	public String delete(String empId) {
+		empMapper.delete(empId);
+		return empId;
 	}
 	
 }

@@ -28,10 +28,10 @@ public interface EmpMapper {
 	
 	Emp getOne(String empId);
 	
-	Emp insert(Emp emp);
+	void insert(Emp emp);
 	
-	Emp update(Emp emp);
+	void update(Emp emp);
 	
-	Emp delete(String empId);
+	void delete(String empId);
 	
 }
