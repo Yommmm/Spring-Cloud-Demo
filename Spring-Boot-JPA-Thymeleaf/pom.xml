@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.boot</groupId>
-	<artifactId>Spring-Boot-JPA-Thymeleaf</artifactId>
+	<artifactId>Spring-Boot-JPA</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>Spring-Boot-JPA-Thymeleaf</name>
+	<name>Spring-Boot-JPA</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>

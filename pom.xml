@@ -18,7 +18,7 @@
 
   <modules>
   	<module>Spring-Boot-RabbitMQ</module>
-  	<module>Spring-Boot-JPA-Thymeleaf</module>
   	<module>Eureka</module>
+  	<module>Spring-Boot-JPA</module>
   </modules>
 </project>
