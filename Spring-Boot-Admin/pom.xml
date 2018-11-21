@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.boot.admin</groupId>
-	<artifactId>Spring-Boot-Admin</artifactId>
+	<artifactId>Spring-Boot-Admin-Server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>Spring-Boot-Admin</name>
+	<name>Spring-Boot-Admin-Server</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>

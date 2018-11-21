@@ -3,7 +3,7 @@ server:
   
 spring:
   application:
-    name: Spring-Boot-JPA-Thymeleaf
+    name: Spring-Boot-JPA
     
   datasource:
     driver-class-name: com.mysql.jdbc.Driver

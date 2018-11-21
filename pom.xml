@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.boot</groupId>
-  <artifactId>Spring-Boot-Demo</artifactId>
+  <artifactId>Spring-Cloud-Demo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>Spring-Boot-Demo</name>
+  <name>Spring-Cloud-Demo</name>
   <url>http://maven.apache.org</url>
 
   <properties>
