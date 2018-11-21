@@ -3,11 +3,11 @@ package com.boot.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.boot.bean.EmpBean;
+import com.boot.bean.Emp;
 
 @Repository
-public interface EmpRepository extends JpaRepository<EmpBean, String> {
+public interface EmpRepository extends JpaRepository<Emp, String> {
 
-	EmpBean queryEmpBeanByEmpId(String empId);
+	Emp queryEmpByEmpId(String empId);
 	
 }

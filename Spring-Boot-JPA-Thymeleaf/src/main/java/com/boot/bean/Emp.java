@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class EmpBean {
+public class Emp {
 
 	@Id
 	@GeneratedValue(generator = "system-uuid")

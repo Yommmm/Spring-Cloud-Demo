@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.boot.bean.EmpBean;
+import com.boot.bean.Emp;
 import com.boot.repository.EmpRepository;
 
 @Service
@@ -14,26 +14,26 @@ public class EmpService {
 	@Autowired
 	private EmpRepository empRepository;
 
-	public EmpBean save(EmpBean emp) {
+	public Emp save(Emp emp) {
 		return empRepository.save(emp);
 	}
 	
-	public EmpBean update(EmpBean emp) {
+	public Emp update(Emp emp) {
 		return empRepository.saveAndFlush(emp);
 	}
 	
-	public EmpBean delete(String empId) {
-		EmpBean empBean = this.query(empId);
+	public Emp delete(String empId) {
+		Emp Emp = this.query(empId);
 		empRepository.deleteById(empId);
-		return empBean;
+		return Emp;
 	}
 	
-	public List<EmpBean> list() {
+	public List<Emp> list() {
 		return empRepository.findAll();
 	}
 	
-	public EmpBean query(String empId) {
-		return empRepository.queryEmpBeanByEmpId(empId);
+	public Emp query(String empId) {
+		return empRepository.queryEmpByEmpId(empId);
 	}
 	
 }

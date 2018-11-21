@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.boot.bean.EmpBean;
+import com.boot.bean.Emp;
 import com.boot.bean.common.entity.Result;
 import com.boot.service.EmpService;
 
@@ -26,13 +26,13 @@ public class EmpController {
 	private EmpService empService;
 	
 	@PostMapping
-	public Result save(@RequestBody EmpBean emp) {
+	public Result save(@RequestBody Emp emp) {
 		logger.info(emp.toString());
 		return Result.ToResult(empService.save(emp));
 	}
 	
 	@PutMapping
-	public Result update(@RequestBody EmpBean emp) {
+	public Result update(@RequestBody Emp emp) {
 		logger.info(emp.toString());
 		return Result.ToResult(empService.update(emp));
 	}
