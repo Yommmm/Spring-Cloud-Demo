@@ -17,8 +17,10 @@
   </properties>
 
   <modules>
-  	<module>Spring-Boot-RabbitMQ</module>
   	<module>Eureka</module>
   	<module>Spring-Boot-JPA</module>
+  	<module>Spring-Boot-MyBatis</module>
+  	<module>Spring-Boot-Admin</module>
+  	<module>Spring-Boot-RabbitMQ</module>
   </modules>
 </project>

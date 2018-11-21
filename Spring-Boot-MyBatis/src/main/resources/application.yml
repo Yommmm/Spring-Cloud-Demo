@@ -1,9 +1,9 @@
 server:
-  port: 8050
+  port: 8052
   
 spring:
   application:
-    name: Spring-Boot-JPA
+    name: Spring-Boot-MyBatis
     
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
@@ -11,14 +11,5 @@ spring:
     username: root
     password: root
     
-  jpa:
-    properties:
-      hibernate: 
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    
-  thymeleaf:
-    cache: false
-      
+mybatis:
+  type-aliases-package: com.boot.mapper
