@@ -2,12 +2,24 @@ package com.boot.entity;
 
 public class Mail {
 
-	private String senderAddr;
+	/**
+	 * 发件人
+	 */
+	private String senderAddr = "1529133840@qq.com";
 	
+	/**
+	 * 收件人
+	 */
 	private String receiverAddr;
 	
+	/**
+	 * 标题
+	 */
 	private String subject;
 	
+	/**
+	 * 内容
+	 */
 	private String content;
 
 	public String getSenderAddr() {
