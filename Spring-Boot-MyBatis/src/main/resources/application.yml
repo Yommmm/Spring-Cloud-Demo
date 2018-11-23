@@ -11,6 +11,12 @@ spring:
     username: root
     password: root
     
+  mail:
+    host: smtp.qq.com
+    username: 1529133840@qq.com
+    password: znvduoetxrrqjhhg
+    default-encoding: UTF-8
+    
 mybatis:
   type-aliases-package: com.boot.mapper
   config-location: classpath:mybatis/mybatis-config.xml
