@@ -32,7 +32,8 @@ public class FeignController {
 		param.put("bbbb", "bbbb");
 		param.put("cccc", "cccc");
 		param.put("dddd", "dddd");
-		jpaRemote.post(param);
+		String post = jpaRemote.post(param);
+		logger.info("jpaRemote.post(param) {}", post);
 		
 		/** 都用后台调用了，还用GET方法干什么。。。
 		Emp emp = new Emp();
@@ -40,13 +41,17 @@ public class FeignController {
 		jpaRemote.get(emp);
 		*/
 		
-		jpaRemote.getPath("12306");
+		String path = jpaRemote.getPath("12306");
+		logger.info("jpaRemote.getPath(\"12306\") {}", path);
 		
-		jpaRemote.getParam("12307");
+		String param2 = jpaRemote.getParam("12307");
+		logger.info("jpaRemote.getParam(\"12307\") {}", param2);
 		
-		jpaRemote.put("12308", param);
+		String put = jpaRemote.put("12308", param);
+		logger.info("jpaRemote.put(\"12308\", param) {}", put);
 		
-		jpaRemote.delete("12309");
+		String delete = jpaRemote.delete("12309");
+		logger.info("jpaRemote.delete(\"12309\") {}", delete);
 		
 		return Result.ToResult("success");
 	}

@@ -1,22 +1,27 @@
 server:
-  port: 8052
+  # 服务端口（使用Docker部署时注意容器开放端口与服务端口保持一致）
+  port: 8060
   
 spring:
+  # 应用名称
   application:
     name: Spring-Boot-MyBatis
-    
+  
+  # 数据库配置（驱动、连接、用户名、密码）  
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/Boot_Demo?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=true
     username: root
     password: root
-    
+  
+  # 发送邮件相关配置  
   mail:
     host: smtp.qq.com
     username: 1529133840@qq.com
     password: znvduoetxrrqjhhg
     default-encoding: UTF-8
     
+# MyBatis相关配置
 mybatis:
   type-aliases-package: com.boot.mapper
   config-location: classpath:mybatis/mybatis-config.xml
@@ -28,3 +33,10 @@ mybatis:
 feign:
   hystrix:
     enabled: false
+
+management:
+  # actuator监控
+  server:
+    port: 8069
+    servlet:
+      context-path: /monitor  
