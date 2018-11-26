@@ -2,8 +2,8 @@
 ## port: 8052
 ### Actuator
 Actuator 提供了 13 个接口，具体如下表所示
+| HTTP | 方法	路径 | 描述 |
 | ------ | ------ | ------ |
-| HTTP | 方法	路径	描述
 | GET	| /autoconfig	| 提供了一份自动配置报告，记录哪些自动配置条件通过了，哪些没通过
 | GET	| /configprops	| 描述配置属性(包含默认值)如何注入Bean
 | GET	| /beans	| 描述应用程序上下文里全部的Bean，以及它们的关系
