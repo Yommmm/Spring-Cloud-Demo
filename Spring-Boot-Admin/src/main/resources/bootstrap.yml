@@ -1,0 +1,9 @@
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      # 大坑！！！不能写成default-zone，只能是defaultZone。我也不知道为什么，可能Eureka的yaml解析写死了读取defaultZone，其他的都注册不上
+      # 2016年踩一次，2018年又踩一次
+      # 纪念！！！
+      defaultZone: http://localhost:8761/eureka
