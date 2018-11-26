@@ -71,6 +71,12 @@
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
+		
+		<!-- SpringBoot2.0之后，feign改名成openfeign，改了之后具体产生了什么没有去深究了，后面再去细细了解 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
 	</dependencies>
 	
 	<dependencyManagement>

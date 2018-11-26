@@ -23,3 +23,8 @@ mybatis:
   mapper-locations:
   # yaml语法中，-表示多个同一层级的
   - classpath:mybatis/mapper/*.xml
+
+# 服务调用及熔断降级
+feign:
+  hystrix:
+    enabled: true

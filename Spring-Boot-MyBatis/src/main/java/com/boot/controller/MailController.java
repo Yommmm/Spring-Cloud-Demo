@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.boot.entity.Mail;
 import com.boot.service.MailService;
 
+/**
+ * 邮件发送服务
+ * @author 170186
+ *
+ */
 @RestController
 @RequestMapping("/boot/v2/mail")
 public class MailController {
