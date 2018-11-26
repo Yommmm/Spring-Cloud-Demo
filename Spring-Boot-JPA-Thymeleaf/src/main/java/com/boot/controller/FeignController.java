@@ -33,8 +33,8 @@ public class FeignController {
 	}
 	
 	@PostMapping("/doubleParam")
-	public Object post(@RequestBody Map<String, String> parama, Map<String, String> paramb) {
-		logger.info("Map<String, String> parama: {} , Map<String, String> paramb: {} ", parama, paramb);
+	public Object post(@RequestBody Map<String, String> parama, @RequestBody Map<String, String> paramb) {
+		logger.info("Map<String, String> parama: {}, Map<String, String> paramb: {} ", parama, paramb);
 		Map<String, Map<String, String>> result = new HashMap<String, Map<String, String>>();
 		result.put("parama", parama);
 		result.put("paramb", paramb);
@@ -68,7 +68,7 @@ public class FeignController {
 	 */
 	@PutMapping("{id}")
 	public Object put(@PathVariable String id, @RequestBody Map<String, String> param) {
-		logger.info("String id: {} ,Map<String, String> param: {}", id, param);
+		logger.info("String id: {}, Map<String, String> param: {}", id, param);
 		Map<String, Object> result = new HashMap<String, Object>();
 		result.put("id", id);
 		result.put("param", param);

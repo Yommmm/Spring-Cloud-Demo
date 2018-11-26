@@ -27,4 +27,4 @@ mybatis:
 # 服务调用及熔断降级
 feign:
   hystrix:
-    enabled: true
+    enabled: false
