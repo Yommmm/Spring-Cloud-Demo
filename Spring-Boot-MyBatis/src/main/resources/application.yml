@@ -21,4 +21,5 @@ mybatis:
   type-aliases-package: com.boot.mapper
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations:
+  # yaml语法中，-表示多个同一层级的
   - classpath:mybatis/mapper/*.xml

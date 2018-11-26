@@ -109,5 +109,12 @@ public class Emp {
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
+
+	@Override
+	public String toString() {
+		return "Emp [empId=" + empId + ", empCode=" + empCode + ", empName=" + empName + ", empIdCard=" + empIdCard
+				+ ", empAddr=" + empAddr + ", salar=" + salar + ", active=" + active + ", status=" + status
+				+ ", createTime=" + createTime + "]";
+	}
 	
 }
