@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.boot.common.entity.Result;
-import com.boot.entity.Emp;
 import com.boot.feign.JpaRemote;
+
+import io.micrometer.core.annotation.Timed;
 
 @RestController
 @RequestMapping("/boot/v2/feign")
@@ -24,6 +25,7 @@ public class FeignController {
 	private JpaRemote jpaRemote;
 	
 	@GetMapping
+	@Timed(value = "test", longTask = true)
 	public Result test() {
 		logger.info("come on!");
 		

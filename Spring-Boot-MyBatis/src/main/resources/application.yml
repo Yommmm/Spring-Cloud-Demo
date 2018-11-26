@@ -39,4 +39,13 @@ management:
   server:
     port: 8069
     servlet:
-      context-path: /monitor  
+      context-path: /monitor
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      
+info:
+   app:
+      name: spring-boot-actuator
+      version: 1.0.0
