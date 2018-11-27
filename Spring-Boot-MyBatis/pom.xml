@@ -79,11 +79,13 @@
 		</dependency>
 		
 		<!-- 监控 -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
+		</dependency> -->
+		<!-- 由于Spring Boot Admin客户端依赖包含了监控包，注释掉 -->
 		
+		<!-- Spring Boot Admin客户端 -->
 		<dependency>
 		    <groupId>de.codecentric</groupId>
 		    <artifactId>spring-boot-admin-starter-client</artifactId>

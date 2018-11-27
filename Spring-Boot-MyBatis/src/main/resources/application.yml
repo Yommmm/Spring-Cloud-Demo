@@ -13,10 +13,12 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/Boot_Demo?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=true
     username: root
     password: root
+  # Spring Boot Admin相关配置
   boot:
     admin:
       client:
         url:
+        # 配置监控路径，可多条
         - "http://localhost:8000"
   
   # 发送邮件相关配置  
@@ -45,11 +47,13 @@ management:
     port: 8069
     servlet:
       context-path: /monitor
+  # 接口暴露于屏蔽
   endpoints:
     web:
       exposure:
         include: "*"
-      
+
+# 应用信息   
 info:
    app:
       name: Spring-Boot-MyBatis
