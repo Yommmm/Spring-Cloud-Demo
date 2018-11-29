@@ -39,8 +39,8 @@ public class SpringBootMyBatisApplication {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("测试Swagger")
-                .description("powered by By-Health")
-                .termsOfServiceUrl("http://www.by-health.com/")
+                .description("powered by Yommmm")
+                .termsOfServiceUrl("http://yommmm.github.com/")
                 .version("1.0")
                 .build();
     }
