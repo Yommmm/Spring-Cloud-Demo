@@ -21,4 +21,30 @@ spring:
     
   thymeleaf:
     cache: false
+    
+  # Spring Boot Admin相关配置
+  boot:
+    admin:
+      client:
+        url:
+        # 配置Spring-Boot-Admin监控路径，可多条
+        - "http://localhost:8000"
+
+management:
+  # actuator监控
+  server:
+    port: 8059
+    servlet:
+      context-path: /monitor
+  # 接口暴露于屏蔽
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+# 应用信息   
+info:
+   app:
+      name: Spring-Boot-JPA
+      version: 1.0.0
       
