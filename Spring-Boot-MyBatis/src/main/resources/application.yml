@@ -18,7 +18,7 @@ spring:
     admin:
       client:
         url:
-        # 配置监控路径，可多条
+        # 配置Spring-Boot-Admin监控路径，可多条
         - "http://localhost:8000"
   
   # 发送邮件相关配置  
