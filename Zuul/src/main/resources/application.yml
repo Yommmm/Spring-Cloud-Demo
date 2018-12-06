@@ -1,0 +1,26 @@
+server:
+  # 服务端口（使用Docker部署时注意容器开放端口与服务端口保持一致）
+  port: 8888
+  
+spring:
+  # 应用名称
+  application:
+    name: Zuul
+    
+zuul:
+  routes:
+    test: 
+      path: /Spring-Cloud-Demo/**
+      url: https://github.com/Yommmm/Spring-Cloud-Demo
+    mybatis: 
+      path: /mybatis/**
+      service-id: Spring-Boot-MyBatis
+    jpa: 
+      path: /jpa/**
+      service-id: Spring-Boot-JPA
+
+# 应用信息   
+info:
+   app:
+      name: Zuul
+      version: 1.0.0
