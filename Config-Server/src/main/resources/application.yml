@@ -9,4 +9,6 @@ spring:
     config:
       server:
         git:
+          search-paths:
+          - config
           uri: https://github.com/Yommmm/Spring-Cloud-Demo

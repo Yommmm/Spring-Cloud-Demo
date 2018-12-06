@@ -64,3 +64,5 @@ info:
    app:
       name: Spring-Boot-MyBatis
       version: 1.0.0
+      
+hahahahah: local

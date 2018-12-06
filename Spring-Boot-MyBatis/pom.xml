@@ -38,6 +38,12 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 		
+		<!-- 配置中心 -->
+		<dependency>
+        	<groupId>org.springframework.cloud</groupId>
+        	<artifactId>spring-cloud-config-client</artifactId>
+        </dependency>
+		
 		<!-- SpringBoot-MyBatis起步依赖 -->
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
@@ -109,7 +115,7 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-zipkin</artifactId>
 		</dependency>
-        
+
 	</dependencies>
 	
 	<dependencyManagement>
