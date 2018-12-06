@@ -12,6 +12,6 @@
 | Service Name | Service Port | Actuator Port |
 | ------ | ------ | ------ |
 | Spring-Cloud-Config | 7000 | - |
-| Spring-Boot-Admin | 8060 | - |
+| Spring-Boot-Admin | 8000 | - |
 | Zipkin-Server | 9411 | - |
 | Eureka-Server | 8761,8762 | - |
