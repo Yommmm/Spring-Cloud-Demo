@@ -29,17 +29,25 @@ public class TokenFilter extends ZuulFilter {
 		
 		logger.info("--->>> TokenFilter {},{}", request.getMethod(), request.getRequestURL().toString());
 
-        String token = request.getParameter("token");// 获取请求的参数
+        String accessToken = request.getHeader("accessToken");
+        accessToken = null == accessToken ? request.getParameter("token") : accessToken;
+        
+        /**
+         * TODO
+         * 1.用户登录时，可将认证完成之后取得的AccessToken放入缓存
+         * 2.缓存中以token为键，该用户拥有的资源为值，并设置有效期，前端将所有信息写入浏览器缓存
+         * 3.网关可通过token进行鉴权，确定当前用户拥有的权限
+         */
 
-        if (!StringUtils.isEmpty(token)) {
+        if (!StringUtils.isEmpty(accessToken)) {
         	requestContext.setSendZuulResponse(true); //对请求进行路由
         	requestContext.setResponseStatusCode(200);
         	requestContext.set("isSuccess", true);
             return null;
         } else {
         	requestContext.setSendZuulResponse(false); //不对其进行路由
-        	requestContext.setResponseStatusCode(401);
-        	requestContext.setResponseBody("token is empty");
+        	requestContext.setResponseStatusCode(400);
+        	requestContext.setResponseBody("accessToken is empty");
             requestContext.set("isSuccess", false);
             return null;
         }
