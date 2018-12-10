@@ -1,0 +1,74 @@
+package com.zuul.filter;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
+
+import com.netflix.zuul.ZuulFilter;
+import com.netflix.zuul.context.RequestContext;
+import com.netflix.zuul.exception.ZuulException;
+import com.zuul.config.Constants;
+
+@Component
+public class TokenFilter extends ZuulFilter {
+	
+	private static final Logger logger = LoggerFactory.getLogger(TokenFilter.class);
+
+	/**
+	 * 过滤器执行的方法
+	 */
+	@Override
+	public Object run() throws ZuulException {
+		logger.info("证明下进来过这个过滤器~");
+		
+		RequestContext requestContext = RequestContext.getCurrentContext();
+		HttpServletRequest request = requestContext.getRequest();
+		
+		logger.info("--->>> TokenFilter {},{}", request.getMethod(), request.getRequestURL().toString());
+
+        String token = request.getParameter("token");// 获取请求的参数
+
+        if (!StringUtils.isEmpty(token)) {
+        	requestContext.setSendZuulResponse(true); //对请求进行路由
+        	requestContext.setResponseStatusCode(200);
+        	requestContext.set("isSuccess", true);
+            return null;
+        } else {
+        	requestContext.setSendZuulResponse(false); //不对其进行路由
+        	requestContext.setResponseStatusCode(401);
+        	requestContext.setResponseBody("token is empty");
+            requestContext.set("isSuccess", false);
+            return null;
+        }
+		
+	}
+
+	/**
+	 * 是否执行该过滤器
+	 */
+	@Override
+	public boolean shouldFilter() {
+		return true;
+	}
+
+	/**
+	 * 过滤器优先级
+	 * 数字越小越高
+	 */
+	@Override
+	public int filterOrder() {
+		return 0;
+	}
+
+	/**
+	 * 过滤器类型
+	 */
+	@Override
+	public String filterType() {
+		return Constants.ZUUL_FILTER_TYPE_PRE;
+	}
+
+}
