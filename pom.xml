@@ -18,9 +18,12 @@
 
   <modules>
   	<module>Eureka</module>
-  	<module>Spring-Boot-JPA</module>
   	<module>Spring-Boot-MyBatis</module>
   	<module>Spring-Boot-Admin</module>
   	<module>Spring-Boot-RabbitMQ</module>
+  	<module>Config-Server</module>
+  	<module>Spring-Boot-JPA-Thymeleaf</module>
+  	<module>Zipkin-Server</module>
+  	<module>Zuul</module>
   </modules>
 </project>

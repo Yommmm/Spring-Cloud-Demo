@@ -1,5 +1,7 @@
 Zuul
 
+Zuul过滤器功能及级别
+
 |类型|顺序|过滤器|功能|
 | ------ | ------ | ------ | ------ |
 |pre	|-3	|ServletDetectionFilter	|标记处理Servlet的类型|

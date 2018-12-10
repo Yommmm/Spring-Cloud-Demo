@@ -11,7 +11,6 @@
 	<groupId>com.zuul</groupId>
 	<artifactId>Zuul</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
 	<name>Zuul</name>
 	<description>Zuul</description>
 

@@ -6,7 +6,6 @@
 	<groupId>com.boot</groupId>
 	<artifactId>Zipkin-Server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
 
 	<name>Zipkin-Server</name>
 	<description>Zipkin-Server</description>

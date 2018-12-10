@@ -11,7 +11,6 @@
 	<groupId>com.cloud</groupId>
 	<artifactId>Config-Server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
 	<name>Config-Server</name>
 	<description>Config-Server</description>
 

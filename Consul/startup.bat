@@ -1,0 +1,2 @@
+consul agent -dev
+pause
