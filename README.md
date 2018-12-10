@@ -6,6 +6,8 @@
 | ------ | ------ | ------ |
 | Spring-Boot-JPA | 8050 | 8059 |
 | Spring-Boot-MyBatis | 8060 | 8069 |
+| Spring-Boot-Consul-C | 8070 | - |
+| Spring-Boot-Consul-P | 8071/8072 | - |
 
 ## Spring-Cloud-Service
 
