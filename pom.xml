@@ -25,5 +25,7 @@
   	<module>Spring-Boot-JPA-Thymeleaf</module>
   	<module>Zipkin-Server</module>
   	<module>Zuul</module>
+  	<module>Spring-Boot-Consul-C</module>
+  	<module>Spring-Boot-Consul-P</module>
   </modules>
 </project>
