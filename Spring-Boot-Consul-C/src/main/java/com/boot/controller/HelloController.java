@@ -22,7 +22,7 @@ public class HelloController {
 	/**
 	 * 获取所有服务
 	 */
-    @RequestMapping("/services")
+    @GetMapping("/services")
     public Object services() {
         return discoveryClient.getInstances("Spring-Boot-Consul-P");
     }
@@ -30,12 +30,12 @@ public class HelloController {
     /**
      * 从所有服务中选择一个服务（轮询）
      */
-    @RequestMapping("/discover")
+    @GetMapping("/discover")
     public Object discover() {
         return loadBalancer.choose("Spring-Boot-Consul-P").getUri().toString();
     }
     
-    @RequestMapping("/call")
+    @GetMapping("/call")
     public String call() {
         ServiceInstance serviceInstance = loadBalancer.choose("Spring-Boot-Consul-P");
         System.out.println("服务地址：" + serviceInstance.getUri());
