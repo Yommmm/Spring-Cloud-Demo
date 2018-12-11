@@ -1,25 +1,33 @@
 package com.boot.entity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(value = "Mail", description = "邮件内容对象")
 public class Mail {
 
 	/**
 	 * 发件人
 	 */
+	@ApiModelProperty(value = "发件人")
 	private String senderAddr = "1529133840@qq.com";
 	
 	/**
 	 * 收件人
 	 */
+	@ApiModelProperty(value = "收件人")
 	private String receiverAddr;
 	
 	/**
 	 * 标题
 	 */
+	@ApiModelProperty(value = "邮件标题")
 	private String subject;
 	
 	/**
 	 * 内容
 	 */
+	@ApiModelProperty(value = "邮件内容")
 	private String content;
 
 	public String getSenderAddr() {

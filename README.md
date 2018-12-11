@@ -17,3 +17,5 @@
 | Spring-Boot-Admin | 8000 | - |
 | Zipkin-Server | 9411 | - |
 | Eureka-Server | 8761,8762 | - |
+| Zuul | 8888 | - |
+| Spring-Cloud-Gateway | 9999 | - |

@@ -1,0 +1,14 @@
+server:
+  port: 9999
+  
+spring:
+  application:
+    name: Spring-Cloud-Gateway
+    
+  cloud:
+    gateway:
+      routes:
+      - id: Spring-Boot-MyBatis
+        uri: lb://Spring-Boot-MyBatis
+        predicates:
+        - Path=/api-mybatis/**

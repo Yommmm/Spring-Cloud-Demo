@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.boot.entity.Mail;
 import com.boot.service.MailService;
 
+import io.swagger.annotations.ApiOperation;
+
 /**
  * 邮件发送服务
  * @author 170186
@@ -26,6 +28,7 @@ public class MailController {
 	private MailService mailService;
 	
 	@PostMapping
+	@ApiOperation(value = "发送邮件", notes="发送邮件API", produces = "application/json")  
 	public Object sendMail(@RequestBody Mail mail) {
 		logger.info(mail.toString());
 		return mailService.sendMail(mail);
