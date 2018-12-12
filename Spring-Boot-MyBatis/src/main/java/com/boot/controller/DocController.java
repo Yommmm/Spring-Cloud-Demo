@@ -32,7 +32,7 @@ public class DocController {
         Swagger2MarkupConverter.from(new URL("http://localhost:8060/v2/api-docs"))
                 .withConfig(config)
                 .build()
-                .toFolder(Paths.get("src/docs/asciidoc/generated"));
+                .toFolder(Paths.get("./src/main/resources/docs/asciidoc/generated"));
     }
 	
 	/**
@@ -53,7 +53,7 @@ public class DocController {
         Swagger2MarkupConverter.from(new URL("http://localhost:8060/v2/api-docs"))
                 .withConfig(config)
                 .build()
-                .toFolder(Paths.get("src/docs/markdown/generated"));
+                .toFolder(Paths.get("./src/main/resources/docs/markdown/generated"));
     }
     
     /**
@@ -74,12 +74,11 @@ public class DocController {
         Swagger2MarkupConverter.from(new URL("http://localhost:8060/v2/api-docs"))
                 .withConfig(config)
                 .build()
-                .toFile(Paths.get("E://项目文件夹/all"));
+                .toFile(Paths.get("./src/main/resources/docs/asciidoc/generated/all"));
     }
  
 	/**
 	 * 生成Markdown格式文档,并汇总成一个文件
-	 * 
 	 * @throws Exception
 	 */
 	@GetMapping("/generateMarkdownToFile")
@@ -94,12 +93,7 @@ public class DocController {
 
 		Swagger2MarkupConverter.from(new URL("http://localhost:8060/v2/api-docs"))
 				.withConfig(config).build()
-				.toFile(Paths.get("E://项目文件夹/all"));
-		
-//		Swagger2MarkupConverter build = Swagger2MarkupConverter.from(new URL("http://localhost:8060/v2/api-docs"))
-//		.withConfig(config).build();
-		
-//		System.out.println(build.toString());
+				.toFile(Paths.get("./src/main/resources/docs/markdown/generated/all"));
 		
 	}
 	

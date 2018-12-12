@@ -1,0 +1,735 @@
+= 测试Swagger
+
+
+[[_overview]]
+== 概览
+powered by Yommmm
+
+
+=== 版本信息
+[%hardbreaks]
+__版本__ : 1.0
+
+
+=== 许可信息
+[%hardbreaks]
+__服务条款__ : http://yommmm.github.com/
+
+
+=== URI scheme
+[%hardbreaks]
+__域名__ : localhost:8060
+__基础路径__ : /
+
+
+=== 标签
+
+* config-controller : Config Controller
+* doc-controller : Doc Controller
+* emp-controller : Emp Controller
+* feign-controller : Feign Controller
+* mail-controller : Mail Controller
+
+
+
+
+[[_paths]]
+== 资源
+
+[[_config-controller_resource]]
+=== Config-controller
+Config Controller
+
+
+[[_getconfigusingget]]
+==== getConfig
+....
+GET /boot/v2/config/hahahahah
+....
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|object
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/boot/v2/config/hahahahah
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+"object"
+----
+
+
+[[_doc-controller_resource]]
+=== Doc-controller
+Doc Controller
+
+
+[[_generateasciidocsusingget]]
+==== generateAsciiDocs
+....
+GET /boot/v2/docs/generateAscii
+....
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/boot/v2/docs/generateAscii
+----
+
+
+[[_generateasciidocstofileusingget]]
+==== generateAsciiDocsToFile
+....
+GET /boot/v2/docs/generateAsciiToFile
+....
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/boot/v2/docs/generateAsciiToFile
+----
+
+
+[[_generatemarkdowndocsusingget]]
+==== generateMarkdownDocs
+....
+GET /boot/v2/docs/generateMarkdown
+....
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/boot/v2/docs/generateMarkdown
+----
+
+
+[[_generatemarkdowndocstofileusingget]]
+==== generateMarkdownDocsToFile
+....
+GET /boot/v2/docs/generateMarkdownToFile
+....
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/boot/v2/docs/generateMarkdownToFile
+----
+
+
+[[_emp-controller_resource]]
+=== Emp-controller
+Emp Controller
+
+
+[[_saveusingpost]]
+==== save
+....
+POST /boot/v2/emp
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Body**|**emp** +
+__必填__|emp|<<_emp,Emp>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_result,Result>>
+|**201**|Created|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/boot/v2/emp
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "active" : "string",
+  "createTime" : "string",
+  "empAddr" : "string",
+  "empCode" : "string",
+  "empId" : "string",
+  "empIdCard" : "string",
+  "empName" : "string",
+  "salar" : 0.0,
+  "status" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "resultCode" : "string",
+  "resultMsg" : "string"
+}
+----
+
+
+[[_updateusingput]]
+==== update
+....
+PUT /boot/v2/emp
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Body**|**emp** +
+__必填__|emp|<<_emp,Emp>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_result,Result>>
+|**201**|Created|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/boot/v2/emp
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "active" : "string",
+  "createTime" : "string",
+  "empAddr" : "string",
+  "empCode" : "string",
+  "empId" : "string",
+  "empIdCard" : "string",
+  "empName" : "string",
+  "salar" : 0.0,
+  "status" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "resultCode" : "string",
+  "resultMsg" : "string"
+}
+----
+
+
+[[_listusingget]]
+==== list
+....
+GET /boot/v2/emp/list
+....
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_result,Result>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/boot/v2/emp/list
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "resultCode" : "string",
+  "resultMsg" : "string"
+}
+----
+
+
+[[_queryusingget]]
+==== query
+....
+GET /boot/v2/emp/{empId}
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Path**|**empId** +
+__必填__|empId|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_result,Result>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/boot/v2/emp/string
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "resultCode" : "string",
+  "resultMsg" : "string"
+}
+----
+
+
+[[_deleteusingdelete]]
+==== delete
+....
+DELETE /boot/v2/emp/{empId}
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Path**|**empId** +
+__必填__|empId|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_result,Result>>
+|**204**|No Content|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|===
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/boot/v2/emp/string
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "resultCode" : "string",
+  "resultMsg" : "string"
+}
+----
+
+
+[[_feign-controller_resource]]
+=== Feign-controller
+Feign Controller
+
+
+[[_testusingget]]
+==== test
+....
+GET /boot/v2/feign
+....
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_result,Result>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/boot/v2/feign
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "resultCode" : "string",
+  "resultMsg" : "string"
+}
+----
+
+
+[[_mail-controller_resource]]
+=== Mail-controller
+Mail Controller
+
+
+[[_sendmailusingpost]]
+==== 发送邮件
+....
+POST /boot/v2/mail
+....
+
+
+===== 说明
+发送邮件API
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Body**|**mail** +
+__必填__|mail|<<_mail,Mail>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|object
+|**201**|Created|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+* `application/json`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/boot/v2/mail
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "content" : "string",
+  "receiverAddr" : "string",
+  "senderAddr" : "string",
+  "subject" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+"object"
+----
+
+
+
+
+[[_definitions]]
+== 定义
+
+[[_emp]]
+=== Emp
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**active** +
+__可选__|**样例** : `"string"`|string
+|**createTime** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**empAddr** +
+__可选__|**样例** : `"string"`|string
+|**empCode** +
+__可选__|**样例** : `"string"`|string
+|**empId** +
+__可选__|**样例** : `"string"`|string
+|**empIdCard** +
+__可选__|**样例** : `"string"`|string
+|**empName** +
+__可选__|**样例** : `"string"`|string
+|**salar** +
+__可选__|**样例** : `0.0`|number (double)
+|**status** +
+__可选__|**样例** : `"string"`|string
+|===
+
+
+[[_mail]]
+=== Mail
+邮件内容对象
+
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**content** +
+__可选__|邮件内容 +
+**样例** : `"string"`|string
+|**receiverAddr** +
+__可选__|收件人 +
+**样例** : `"string"`|string
+|**senderAddr** +
+__可选__|发件人 +
+**样例** : `"string"`|string
+|**subject** +
+__可选__|邮件标题 +
+**样例** : `"string"`|string
+|===
+
+
+[[_result]]
+=== Result
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**data** +
+__可选__|**样例** : `"object"`|object
+|**resultCode** +
+__可选__|**样例** : `"string"`|string
+|**resultMsg** +
+__可选__|**样例** : `"string"`|string
+|===
+
+
+
+
+

@@ -1,0 +1,70 @@
+
+[[_definitions]]
+== 定义
+
+[[_emp]]
+=== Emp
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**active** +
+__可选__|**样例** : `"string"`|string
+|**createTime** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**empAddr** +
+__可选__|**样例** : `"string"`|string
+|**empCode** +
+__可选__|**样例** : `"string"`|string
+|**empId** +
+__可选__|**样例** : `"string"`|string
+|**empIdCard** +
+__可选__|**样例** : `"string"`|string
+|**empName** +
+__可选__|**样例** : `"string"`|string
+|**salar** +
+__可选__|**样例** : `0.0`|number (double)
+|**status** +
+__可选__|**样例** : `"string"`|string
+|===
+
+
+[[_mail]]
+=== Mail
+邮件内容对象
+
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**content** +
+__可选__|邮件内容 +
+**样例** : `"string"`|string
+|**receiverAddr** +
+__可选__|收件人 +
+**样例** : `"string"`|string
+|**senderAddr** +
+__可选__|发件人 +
+**样例** : `"string"`|string
+|**subject** +
+__可选__|邮件标题 +
+**样例** : `"string"`|string
+|===
+
+
+[[_result]]
+=== Result
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**data** +
+__可选__|**样例** : `"object"`|object
+|**resultCode** +
+__可选__|**样例** : `"string"`|string
+|**resultMsg** +
+__可选__|**样例** : `"string"`|string
+|===
+
+
+

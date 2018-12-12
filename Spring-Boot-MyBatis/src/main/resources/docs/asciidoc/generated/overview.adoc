@@ -1,0 +1,34 @@
+= 测试Swagger
+
+
+[[_overview]]
+== 概览
+powered by Yommmm
+
+
+=== 版本信息
+[%hardbreaks]
+__版本__ : 1.0
+
+
+=== 许可信息
+[%hardbreaks]
+__服务条款__ : http://yommmm.github.com/
+
+
+=== URI scheme
+[%hardbreaks]
+__域名__ : localhost:8060
+__基础路径__ : /
+
+
+=== 标签
+
+* config-controller : Config Controller
+* doc-controller : Doc Controller
+* emp-controller : Emp Controller
+* feign-controller : Feign Controller
+* mail-controller : Mail Controller
+
+
+
