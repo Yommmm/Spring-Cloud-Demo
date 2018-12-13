@@ -1,15 +1,9 @@
 package com.boot.controller;
 
-import static org.asciidoctor.Asciidoctor.Factory.create;
-
-import java.io.File;
 import java.net.URL;
 import java.nio.file.Paths;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 
-import org.asciidoctor.Asciidoctor;
+import org.asciidoctor.cli.AsciidoctorInvoker;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,8 +19,6 @@ import io.github.swagger2markup.markup.builder.MarkupLanguage;
 @RequestMapping("/boot/v2/docs")
 public class DocController {
 	
-	private Asciidoctor asciidoctor;
-
 	@GetMapping("/generateAscii")
 	public void generateAsciiDocs() throws Exception {
         //    输出Ascii格式
@@ -65,21 +57,7 @@ public class DocController {
                 .build()
                 .toFile(Paths.get("./src/main/resources/docs/asciidoc/generated/all"));
         
-        File file = new File("./src/main/resources/docs/asciidoc/generated/all.adoc");
-        
-        if(null == asciidoctor) {
-        	asciidoctor = create();
-        }
-        
-        Map<String, Object> attributes = new HashMap<String, Object>();
-        attributes.put("backend", "html");
-
-        Map<String, Object> options = new HashMap<String, Object>();
-        options.put("in_place", true);
-        options.put("attributes", attributes);
-        
-        String rendered = asciidoctor.renderFile(file, options);
-        System.out.println(rendered);
+        AsciidoctorInvoker.main(new String[]{"-b", "html5", "-d", "book", "./src/main/resources/docs/asciidoc/generated/all.adoc"});
     }
 	
 	/**
