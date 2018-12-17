@@ -58,6 +58,9 @@ public class DocController {
                 .toFile(Paths.get("./src/main/resources/docs/asciidoc/generated/all"));
         
         AsciidoctorInvoker.main(new String[]{"-b", "html5", "-d", "book", "./src/main/resources/docs/asciidoc/generated/all.adoc"});
+        
+        AsciidoctorInvoker.main(new String[]{"./src/main/resources/docs/asciidoc/generated/all.adoc"});
+        
     }
 	
 	/**

@@ -2,24 +2,37 @@ package com.boot.entity;
 
 import java.util.Date;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(value = "Emp", description = "员工对象")
 public class Emp {
 
+	@ApiModelProperty(value = "编号")
 	private String empId;
 	
+	@ApiModelProperty(value = "编码")
 	private String empCode;
 	
+	@ApiModelProperty(value = "姓名")
 	private String empName;
 	
+	@ApiModelProperty(value = "证件号")
 	private String empIdCard;
 	
+	@ApiModelProperty(value = "地址")
 	private String empAddr;
 	
+	@ApiModelProperty(value = "薪水")
 	private Double salar;
 	
+	@ApiModelProperty(value = "活跃值")
 	private String active;
 	
+	@ApiModelProperty(value = "状态")
 	private String status;
 	
+	@ApiModelProperty(value = "创建时间")
 	private Date createTime;
 
 	public String getEmpId() {

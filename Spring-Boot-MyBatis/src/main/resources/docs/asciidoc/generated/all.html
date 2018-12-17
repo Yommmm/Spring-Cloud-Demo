@@ -425,7 +425,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .show-for-print{display:inherit!important}}
 </style>
 </head>
-<body class="book">
+<body class="article">
 <div id="header">
 <h1>测试Swagger</h1>
 </div>
@@ -851,10 +851,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Emp Controller</p>
 </div>
 <div class="sect3">
-<h4 id="_saveusingpost">save</h4>
+<h4 id="_saveusingpost">新增</h4>
 <div class="literalblock">
 <div class="content">
 <pre>POST /boot/v2/emp</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_说明">说明</h5>
+<div class="paragraph">
+<p>新增员工API</p>
 </div>
 </div>
 <div class="sect4">
@@ -946,6 +952,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <p><code><strong>/</strong></code></p>
 </li>
+<li>
+<p><code>application/json</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -995,10 +1004,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_updateusingput">update</h4>
+<h4 id="_updateusingput">更新</h4>
 <div class="literalblock">
 <div class="content">
 <pre>PUT /boot/v2/emp</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_说明_2">说明</h5>
+<div class="paragraph">
+<p>更新员工API</p>
 </div>
 </div>
 <div class="sect4">
@@ -1090,6 +1105,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <p><code><strong>/</strong></code></p>
 </li>
+<li>
+<p><code>application/json</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -1139,10 +1157,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_listusingget">list</h4>
+<h4 id="_listusingget">列表</h4>
 <div class="literalblock">
 <div class="content">
 <pre>GET /boot/v2/emp/list</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_说明_3">说明</h5>
+<div class="paragraph">
+<p>员工列表API</p>
 </div>
 </div>
 <div class="sect4">
@@ -1191,6 +1215,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <p><code><strong>/</strong></code></p>
 </li>
+<li>
+<p><code>application/json</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -1222,10 +1249,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_queryusingget">query</h4>
+<h4 id="_queryusingget">查询</h4>
 <div class="literalblock">
 <div class="content">
 <pre>GET /boot/v2/emp/{empId}</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_说明_4">说明</h5>
+<div class="paragraph">
+<p>查询员工API</p>
 </div>
 </div>
 <div class="sect4">
@@ -1302,6 +1335,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <p><code><strong>/</strong></code></p>
 </li>
+<li>
+<p><code>application/json</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -1333,10 +1369,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_deleteusingdelete">delete</h4>
+<h4 id="_deleteusingdelete">删除</h4>
 <div class="literalblock">
 <div class="content">
 <pre>DELETE /boot/v2/emp/{empId}</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_说明_5">说明</h5>
+<div class="paragraph">
+<p>删除员工API</p>
 </div>
 </div>
 <div class="sect4">
@@ -1412,6 +1454,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul>
 <li>
 <p><code><strong>/</strong></code></p>
+</li>
+<li>
+<p><code>application/json</code></p>
 </li>
 </ul>
 </div>
@@ -1546,7 +1591,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect4">
-<h5 id="_说明">说明</h5>
+<h5 id="_说明_6">说明</h5>
 <div class="paragraph">
 <p>发送邮件API</p>
 </div>
@@ -1690,6 +1735,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_emp">Emp</h3>
+<div class="paragraph">
+<p>员工对象</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 16.6666%;">
@@ -1707,55 +1755,64 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>active</strong><br>
 <em>可选</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>样例</strong> : <code>"string"</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">活跃值<br>
+<strong>样例</strong> : <code>"string"</code></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>createTime</strong><br>
 <em>可选</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>样例</strong> : <code>"string"</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">创建时间<br>
+<strong>样例</strong> : <code>"string"</code></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string (date-time)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>empAddr</strong><br>
 <em>可选</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>样例</strong> : <code>"string"</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">地址<br>
+<strong>样例</strong> : <code>"string"</code></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>empCode</strong><br>
 <em>可选</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>样例</strong> : <code>"string"</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">编码<br>
+<strong>样例</strong> : <code>"string"</code></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>empId</strong><br>
 <em>可选</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>样例</strong> : <code>"string"</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">编号<br>
+<strong>样例</strong> : <code>"string"</code></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>empIdCard</strong><br>
 <em>可选</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>样例</strong> : <code>"string"</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">证件号<br>
+<strong>样例</strong> : <code>"string"</code></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>empName</strong><br>
 <em>可选</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>样例</strong> : <code>"string"</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">姓名<br>
+<strong>样例</strong> : <code>"string"</code></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>salar</strong><br>
 <em>可选</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>样例</strong> : <code>0.0</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">薪水<br>
+<strong>样例</strong> : <code>0.0</code></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">number (double)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>status</strong><br>
 <em>可选</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>样例</strong> : <code>"string"</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">状态<br>
+<strong>样例</strong> : <code>"string"</code></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -1853,7 +1910,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-12-13 11:28:12 +08:00
+Last updated 2018-12-14 10:29:32 +08:00
 </div>
 </div>
 </body>

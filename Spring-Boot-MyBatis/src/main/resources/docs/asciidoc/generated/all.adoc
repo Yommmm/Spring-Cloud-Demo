@@ -221,10 +221,14 @@ Emp Controller
 
 
 [[_saveusingpost]]
-==== save
+==== 新增
 ....
 POST /boot/v2/emp
 ....
+
+
+===== 说明
+新增员工API
 
 
 ===== 参数
@@ -258,6 +262,7 @@ __必填__|emp|<<_emp,Emp>>
 ===== 生成
 
 * `*/*`
+* `application/json`
 
 
 ===== HTTP请求示例
@@ -299,10 +304,14 @@ __必填__|emp|<<_emp,Emp>>
 
 
 [[_updateusingput]]
-==== update
+==== 更新
 ....
 PUT /boot/v2/emp
 ....
+
+
+===== 说明
+更新员工API
 
 
 ===== 参数
@@ -336,6 +345,7 @@ __必填__|emp|<<_emp,Emp>>
 ===== 生成
 
 * `*/*`
+* `application/json`
 
 
 ===== HTTP请求示例
@@ -377,10 +387,14 @@ __必填__|emp|<<_emp,Emp>>
 
 
 [[_listusingget]]
-==== list
+==== 列表
 ....
 GET /boot/v2/emp/list
 ....
+
+
+===== 说明
+员工列表API
 
 
 ===== 响应
@@ -398,6 +412,7 @@ GET /boot/v2/emp/list
 ===== 生成
 
 * `*/*`
+* `application/json`
 
 
 ===== HTTP请求示例
@@ -422,10 +437,14 @@ GET /boot/v2/emp/list
 
 
 [[_queryusingget]]
-==== query
+==== 查询
 ....
 GET /boot/v2/emp/{empId}
 ....
+
+
+===== 说明
+查询员工API
 
 
 ===== 参数
@@ -453,6 +472,7 @@ __必填__|empId|string
 ===== 生成
 
 * `*/*`
+* `application/json`
 
 
 ===== HTTP请求示例
@@ -477,10 +497,14 @@ __必填__|empId|string
 
 
 [[_deleteusingdelete]]
-==== delete
+==== 删除
 ....
 DELETE /boot/v2/emp/{empId}
 ....
+
+
+===== 说明
+删除员工API
 
 
 ===== 参数
@@ -508,6 +532,7 @@ __必填__|empId|string
 ===== 生成
 
 * `*/*`
+* `application/json`
 
 
 ===== HTTP请求示例
@@ -667,28 +692,39 @@ __必填__|mail|<<_mail,Mail>>
 
 [[_emp]]
 === Emp
+员工对象
+
 
 [options="header", cols=".^3,.^11,.^4"]
 |===
 |名称|说明|类型
 |**active** +
-__可选__|**样例** : `"string"`|string
+__可选__|活跃值 +
+**样例** : `"string"`|string
 |**createTime** +
-__可选__|**样例** : `"string"`|string (date-time)
+__可选__|创建时间 +
+**样例** : `"string"`|string (date-time)
 |**empAddr** +
-__可选__|**样例** : `"string"`|string
+__可选__|地址 +
+**样例** : `"string"`|string
 |**empCode** +
-__可选__|**样例** : `"string"`|string
+__可选__|编码 +
+**样例** : `"string"`|string
 |**empId** +
-__可选__|**样例** : `"string"`|string
+__可选__|编号 +
+**样例** : `"string"`|string
 |**empIdCard** +
-__可选__|**样例** : `"string"`|string
+__可选__|证件号 +
+**样例** : `"string"`|string
 |**empName** +
-__可选__|**样例** : `"string"`|string
+__可选__|姓名 +
+**样例** : `"string"`|string
 |**salar** +
-__可选__|**样例** : `0.0`|number (double)
+__可选__|薪水 +
+**样例** : `0.0`|number (double)
 |**status** +
-__可选__|**样例** : `"string"`|string
+__可选__|状态 +
+**样例** : `"string"`|string
 |===
 
 

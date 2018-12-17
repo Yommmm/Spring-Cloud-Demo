@@ -15,19 +15,19 @@ public class Mail {
 	/**
 	 * 收件人
 	 */
-	@ApiModelProperty(value = "收件人")
+	@ApiModelProperty(value = "收件人", required = true)
 	private String receiverAddr;
 	
 	/**
 	 * 标题
 	 */
-	@ApiModelProperty(value = "邮件标题")
+	@ApiModelProperty(value = "邮件标题", required = true)
 	private String subject;
 	
 	/**
 	 * 内容
 	 */
-	@ApiModelProperty(value = "邮件内容")
+	@ApiModelProperty(value = "邮件内容", required = true)
 	private String content;
 
 	public String getSenderAddr() {
