@@ -17,6 +17,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
 
 /**
  * 邮件发送服务
@@ -35,6 +36,7 @@ public class MailController {
 	
 	@PostMapping
 	@ApiOperation(value = "发送邮件", notes="发送邮件API", produces = "application/json")
+	@ApiResponse(code = 200, response = Mail.class, message = "666")
 	public Object sendMail(@RequestBody Mail mail) {
 		logger.info(mail.toString());
 		return mailService.sendMail(mail);
@@ -57,12 +59,6 @@ public class MailController {
 	 */
 	@GetMapping("/mail")
 	@ApiOperation(value = "发送邮件", notes="发送邮件API", produces = "application/json")
-//	@ApiImplicitParams({
-//		@ApiImplicitParam(name = "发件人", value = "senderAddr", dataType = "String", paramType = "query", required = true),
-//		@ApiImplicitParam(name = "收件人", value = "receiverAddr", dataType = "String", paramType = "query", required = true),
-//		@ApiImplicitParam(name = "邮件标题", value = "subject", dataType = "String", paramType = "query", required = true),
-//		@ApiImplicitParam(name = "邮件内容", value = "content", dataType = "String", paramType = "query", required = true)
-//	})
 	public Object showSwaggerWithObject(Mail mail) {
 		return mail.toString();
 	}
