@@ -70,4 +70,9 @@ public class EmpController {
 		return Result.ToResult(empService.list());
 	}
 	
+	@GetMapping("/stock")
+	public Object getStock() {
+		return empService.getStock();
+	}
+	
 }
