@@ -82,4 +82,10 @@ public class TableStructure {
 		this.extra = extra;
 	}
 
+	@Override
+	public String toString() {
+		return "TableStructure [field=" + field + ", type=" + type + ", nullable=" + nullable + ", key=" + key
+				+ ", defaultable=" + defaultable + ", extra=" + extra + "]";
+	}
+
 }
