@@ -68,7 +68,7 @@ public class EmpService {
 		Map<String, Object> params = new HashMap<>();
 		params.put("goodsCode", "7000000000");
 		params.put("goodsName", "氧化铝");
-		params.put("locatorNo", "AAB080101");
+		params.put("locatorNo", "AAB1112");
 		params.put("pageNum", 1);
 		params.put("pageSize", 20);
 		
