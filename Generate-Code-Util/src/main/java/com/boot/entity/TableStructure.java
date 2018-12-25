@@ -13,6 +13,11 @@ public class TableStructure {
 	private String field;
 	
 	/**
+	 * 列名
+	 */
+	private String fieldName;
+	
+	/**
 	 * 数据类型
 	 */
 	private String type;
@@ -82,10 +87,19 @@ public class TableStructure {
 		this.extra = extra;
 	}
 
+
+	public String getFieldName() {
+		return fieldName;
+	}
+
+	public void setFieldName(String fieldName) {
+		this.fieldName = fieldName;
+	}
+
 	@Override
 	public String toString() {
-		return "TableStructure [field=" + field + ", type=" + type + ", nullable=" + nullable + ", key=" + key
-				+ ", defaultable=" + defaultable + ", extra=" + extra + "]";
+		return "TableStructure [field=" + field + ", fieldName=" + fieldName + ", type=" + type + ", nullable="
+				+ nullable + ", key=" + key + ", defaultable=" + defaultable + ", extra=" + extra + "]";
 	}
 
 }

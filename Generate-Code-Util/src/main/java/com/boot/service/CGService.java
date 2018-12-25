@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.boot.entity.CGConditions;
 import com.boot.entity.TableStructure;
+import com.boot.utils.StringUtil;
 
 /**
  * 代码生成类
@@ -31,7 +32,7 @@ public class CGService {
 			
 			for(TableStructure tableStructure : tableInfo) {
 				tableStructure.setType(this.dataType(tableStructure.getType()));
-				tableStructure.setField(this.fieldName(tableStructure.getField()));
+				tableStructure.setFieldName(this.fieldName(tableStructure.getField()));
 				
 				System.out.println(tableStructure.toString());
 			}
@@ -41,7 +42,7 @@ public class CGService {
 	}
 	
 	private String fieldName(String field) {
-		field = field.toLowerCase();
+		field = StringUtil.underlineToCamel(field);
 		return field;
 	}
 	
