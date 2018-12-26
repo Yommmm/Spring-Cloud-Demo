@@ -2,7 +2,11 @@ package ${classPath};
 
 import com.zlst.database.core.dao.BaseRepository;
 import com.zlst.module.${packName}.bean.${beanName};
-import com.zlst.module.goodspackage.bean.vo.GoodsPackageIndexVO;
+
+import com.zlst.database.common.Common;
+import com.zlst.database.common.ZlstBeanUtils;
+import com.zlst.database.core.service.QueryAndOperateServ;
+import com.zlst.database.exception.ZlstDatabaseCoreExption;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

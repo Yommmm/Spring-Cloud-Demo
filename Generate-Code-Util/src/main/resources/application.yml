@@ -7,3 +7,4 @@ spring:
     url: jdbc:mysql://192.168.10.25:3306/logistics_wms_dev?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=false
     username: root
     password: 123456
+    
