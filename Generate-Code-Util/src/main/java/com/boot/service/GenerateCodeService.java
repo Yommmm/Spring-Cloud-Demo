@@ -65,13 +65,25 @@ public class GenerateCodeService {
 			String packName = StringUtil.underlineToCamel(tableName);
 			String beanName = StringUtil.firstCharToUpCase(packName);
 			
+			// 生成实体类
 			this.generateFile(templatePath, 
 					"bean", 
 					packParent + packName + "/" + "bean/", 
 					beanName, 
 					"com.zlst.module." + packName + ".bean", 
 					tableName, 
-					tableInfo);
+					tableInfo,
+					null);
+			
+			// 生成DAO
+			this.generateFile(templatePath, 
+					"repository", 
+					packParent + packName + "/" + "repository/", 
+					beanName + "Repository", 
+					"com.zlst.module." + packName + ".repository", 
+					tableName, 
+					null,
+					beanName);
 			
 			System.out.println("生成表" + tableName + "的实体类成功！\n");
 		}
@@ -85,7 +97,7 @@ public class GenerateCodeService {
 	 * @param filePath 目标文件夹
 	 * @param fileName 目标文件名
 	 * @param classPath 包名
-	 * @param tableName 类名
+	 * @param tableName 表名
 	 * @param tableInfo 表结构信息
 	 */
 	private void generateFile(String templatePath, 
@@ -94,7 +106,8 @@ public class GenerateCodeService {
 			String fileName, 
 			String packName,
 			String tableName,
-			List<TableStructure> tableInfo) {
+			List<TableStructure> tableInfo,
+			String beanName) {
 		// step1 创建freeMarker配置实例
 		Configuration configuration = new Configuration(Configuration.VERSION_2_3_28);
 		Writer out = null;
@@ -105,11 +118,20 @@ public class GenerateCodeService {
 			// step3 创建数据模型
 			Map<String, Object> dataModal = new HashMap<String, Object>();
 			
-			dataModal.put("classPath", packName);
-			dataModal.put("tableName", tableName);
-			dataModal.put("className", fileName);
-			if(null != tableInfo && tableInfo.size() > 0) {
+			if("bean".equals(templateName)) {
+				dataModal.put("classPath", packName);
+				dataModal.put("tableName", tableName);
+				dataModal.put("className", fileName);
 				dataModal.put("fields", tableInfo);
+			} else if("repository".equals(templateName)) {
+				dataModal.put("classPath", packName);
+				dataModal.put("packName", tableName);
+				dataModal.put("beanName", beanName);
+				dataModal.put("className", fileName);
+			} else if("service".equals(templateName)) {
+				
+			} else if("controller".equals(templateName)) {
+				
 			}
 
 			// step4 加载模版文件
