@@ -13,9 +13,14 @@ public class TableStructure {
 	private String field;
 	
 	/**
-	 * 列名
+	 * 字段名
 	 */
 	private String fieldName;
+	
+	/**
+	 * 首字母大写的字段名
+	 */
+	private String ucFieldName;
 	
 	/**
 	 * 数据类型
@@ -96,10 +101,18 @@ public class TableStructure {
 		this.fieldName = fieldName;
 	}
 
-	@Override
-	public String toString() {
-		return "TableStructure [field=" + field + ", fieldName=" + fieldName + ", type=" + type + ", nullable="
-				+ nullable + ", key=" + key + ", defaultable=" + defaultable + ", extra=" + extra + "]";
+	public String getUcFieldName() {
+		return ucFieldName;
 	}
 
+	public void setUcFieldName(String ucFieldName) {
+		this.ucFieldName = ucFieldName;
+	}
+
+	@Override
+	public String toString() {
+		return "TableStructure [field=" + field + ", fieldName=" + fieldName + ", ucFieldName=" + ucFieldName
+				+ ", type=" + type + ", nullable=" + nullable + ", key=" + key + ", defaultable=" + defaultable
+				+ ", extra=" + extra + "]";
+	}
 }

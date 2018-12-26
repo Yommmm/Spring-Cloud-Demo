@@ -6,18 +6,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.boot.entity.CGConditions;
-import com.boot.service.CGService;
+import com.boot.service.GenerateBeanCodeService;
 
 @RestController
 @RequestMapping("/cg/v1/generater")
 public class CGController {
 	
 	@Autowired
-	private CGService cgService;
+	private GenerateBeanCodeService beanCodeService;
 	
 	@PostMapping("/bean")
 	public String generateBean(CGConditions cgCondition) {
-		cgService.generateBean(cgCondition);
+		beanCodeService.generateBean(cgCondition);
 		return "success";
 	}
 	

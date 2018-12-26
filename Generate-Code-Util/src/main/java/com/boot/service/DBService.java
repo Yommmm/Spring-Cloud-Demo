@@ -43,8 +43,6 @@ public class DBService {
 	 * @return
 	 */
 	public List<TableStructure> getTableInfo(String tableName) {
-		logger.info(tableName);
-		
 		List<TableStructure> queryResult = jdbcTemplate.query("DESC " + tableName, new RowMapper<TableStructure>() {
             
             public TableStructure mapRow(ResultSet rs, int rowNum)

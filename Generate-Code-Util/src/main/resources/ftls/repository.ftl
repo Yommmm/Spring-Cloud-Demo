@@ -19,7 +19,7 @@ import org.hibernate.annotations.GenericGenerator;
 import com.zlst.common.base.bean.BaseBean;
 
 @Entity
-@Table(name = "${tableName}")
+@Table(name="${tableName}")
 public class ${className} extends BaseBean {
     
 <#list fields as fields>
