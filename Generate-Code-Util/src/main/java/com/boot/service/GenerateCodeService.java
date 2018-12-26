@@ -28,14 +28,14 @@ import freemarker.template.Template;
  *
  */
 @Service
-public class GenerateBeanCodeService {
+public class GenerateCodeService {
 
-	private static final Logger logger = LoggerFactory.getLogger(GenerateBeanCodeService.class);
+	private static final Logger logger = LoggerFactory.getLogger(GenerateCodeService.class);
 	
 	@Autowired
 	private DBService dbService;
 	
-	public void generateBean(CGConditions cgCondition) {
+	public void generateCode(CGConditions cgCondition) {
 		// 数据模板目录
 		String templatePath = "src/main/resources/ftls";
 		
@@ -66,7 +66,8 @@ public class GenerateBeanCodeService {
 			String beanName = StringUtil.firstCharToUpCase(packName);
 			
 			this.generateFile(templatePath, 
-					"bean", packParent + packName + "/" + "bean/", 
+					"bean", 
+					packParent + packName + "/" + "bean/", 
 					beanName, 
 					"com.zlst.module." + packName + ".bean", 
 					tableName, 
@@ -77,9 +78,21 @@ public class GenerateBeanCodeService {
 		
 	}
 	
-	private void generateFile(String templatePath, String templateName, String filePath, 
+	/**
+	 * 生成Java文件，这里可以用工厂模式，或者观察者模式
+	 * @param templatePath 模板路径
+	 * @param templateName 模板名称
+	 * @param filePath 目标文件夹
+	 * @param fileName 目标文件名
+	 * @param classPath 包名
+	 * @param tableName 类名
+	 * @param tableInfo 表结构信息
+	 */
+	private void generateFile(String templatePath, 
+			String templateName, 
+			String filePath, 
 			String fileName, 
-			String classPath,
+			String packName,
 			String tableName,
 			List<TableStructure> tableInfo) {
 		// step1 创建freeMarker配置实例
@@ -92,10 +105,12 @@ public class GenerateBeanCodeService {
 			// step3 创建数据模型
 			Map<String, Object> dataModal = new HashMap<String, Object>();
 			
-			dataModal.put("classPath", classPath);
+			dataModal.put("classPath", packName);
 			dataModal.put("tableName", tableName);
 			dataModal.put("className", fileName);
-			dataModal.put("fields", tableInfo);
+			if(null != tableInfo && tableInfo.size() > 0) {
+				dataModal.put("fields", tableInfo);
+			}
 
 			// step4 加载模版文件
 			Template template = configuration.getTemplate(templateName + ".ftl");
