@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.boot.entity.BaseParams;
 import com.boot.entity.CGConditions;
 import com.boot.entity.TableStructure;
 import com.boot.utils.StringUtil;
@@ -72,9 +73,11 @@ public class GenerateCodeService {
 					packParent + packName + "/" + "bean/", 
 					beanName, 
 					"com.zlst.module." + packName + ".bean", 
-					tableName, 
-					tableInfo,
-					null);
+					null, 
+					null,
+					null,
+					tableName,
+					tableInfo);
 			
 			// 生成DAO
 			this.generateFile(templatePath, 
@@ -83,18 +86,22 @@ public class GenerateCodeService {
 					beanName + "Repository", 
 					"com.zlst.module." + packName + ".repository", 
 					packName, 
+					beanName, 
 					null,
-					beanName);
+					null, 
+					null);
 			
 			// 生成Service
-			/*this.generateFile(templatePath, 
+			this.generateFile(templatePath, 
 					"service", 
 					packParent + packName + "/" + "service/",
 					beanName + "Service", 
 					"com.zlst.module." + packName + ".service", 
-					tableName, 
+					packName, 
+					beanName, 
+					beanName + "Repository", 
 					null, 
-					beanName);*/
+					null);
 			
 			System.out.println("生成表" + tableName + "的实体类成功！\n");
 		}
@@ -104,12 +111,15 @@ public class GenerateCodeService {
 	
 	
 	/**
-	 * 生成Java文件，这里可以用工厂模式，或者观察者模式
+	 * 
 	 * @param templatePath 模板路径
 	 * @param templateName 模板名称
 	 * @param filePath 目标文件夹
 	 * @param fileName 目标文件名
-	 * @param classPath 包名
+	 * @param classPath 包路径
+	 * @param packName 根包名
+	 * @param beanName 实体名
+	 * @param repoName dao名
 	 * @param tableName 表名
 	 * @param tableInfo 表结构信息
 	 */
@@ -117,10 +127,12 @@ public class GenerateCodeService {
 			String templateName, 
 			String filePath, 
 			String fileName, 
-			String classPath,
-			String tableName,
-			List<TableStructure> tableInfo,
-			String beanName) {
+			String classPath, 
+			String packName, 
+			String beanName, 
+			String repoName,
+			String tableName, 
+			List<TableStructure> tableInfo) {
 		// step1 创建freeMarker配置实例
 		Configuration configuration = new Configuration(Configuration.VERSION_2_3_28);
 		Writer out = null;
@@ -138,11 +150,16 @@ public class GenerateCodeService {
 				dataModal.put("fields", tableInfo);
 			} else if("repository".equals(templateName)) {
 				dataModal.put("classPath", classPath);
-				dataModal.put("packName", tableName);
+				dataModal.put("packName", packName);
 				dataModal.put("beanName", beanName);
 				dataModal.put("className", fileName);
 			} else if("service".equals(templateName)) {
-				
+				dataModal.put("classPath", classPath);
+				dataModal.put("packName", packName);
+				dataModal.put("beanName", beanName);
+				dataModal.put("className", fileName);
+				dataModal.put("repoName", repoName);
+				dataModal.put("repoVarName", packName + "Repository");
 			} else if("controller".equals(templateName)) {
 				
 			}
