@@ -2,6 +2,7 @@ package ${classPath};
 
 import com.zlst.database.core.dao.BaseRepository;
 import com.zlst.module.${packName}.bean.${beanName};
+import com.zlst.module.${packName}.repository.${repoName};
 
 import com.zlst.database.common.Common;
 import com.zlst.database.common.ZlstBeanUtils;
@@ -19,7 +20,7 @@ public class ${className} extends QueryAndOperateServ<${beanName}, ${repoName}> 
     private static final Logger logger = LoggerFactory.getLogger(${className}.class);
     
     @Autowired
-    private ${repoName} ${repoName};
+    private ${repoName} ${repoVarName};
     
 }
 

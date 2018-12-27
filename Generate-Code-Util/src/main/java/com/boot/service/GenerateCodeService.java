@@ -47,8 +47,9 @@ public class GenerateCodeService {
 		for(String tableName : tableList) {
 			System.out.println("开始生成表" + tableName + "的实体类...");
 			List<TableStructure> tableInfo = dbService.getTableInfo(tableName);
+			String tableNameDeal = null;
 			if(tableName.indexOf("lms_wms_") > -1) {
-				tableName = StringUtil.removePrefix(tableName, "lms_wms_");
+				tableNameDeal = StringUtil.removePrefix(tableName, "lms_wms_");
 			} else {
 				System.out.println("生成失败！表" + tableName + "已被过滤！\n");
 				continue;
@@ -62,7 +63,7 @@ public class GenerateCodeService {
 				tableStructure.setUcFieldName(StringUtil.firstCharToUpCase(fieldName));
 			}
 			
-			String packName = StringUtil.underlineToCamel(tableName);
+			String packName = StringUtil.underlineToCamel(tableNameDeal);
 			String beanName = StringUtil.firstCharToUpCase(packName);
 			
 			// 生成实体类
@@ -81,14 +82,26 @@ public class GenerateCodeService {
 					packParent + packName + "/" + "repository/", 
 					beanName + "Repository", 
 					"com.zlst.module." + packName + ".repository", 
-					tableName, 
+					packName, 
 					null,
 					beanName);
+			
+			// 生成Service
+			/*this.generateFile(templatePath, 
+					"service", 
+					packParent + packName + "/" + "service/",
+					beanName + "Service", 
+					"com.zlst.module." + packName + ".service", 
+					tableName, 
+					null, 
+					beanName);*/
 			
 			System.out.println("生成表" + tableName + "的实体类成功！\n");
 		}
 		
 	}
+	
+	
 	
 	/**
 	 * 生成Java文件，这里可以用工厂模式，或者观察者模式
@@ -104,7 +117,7 @@ public class GenerateCodeService {
 			String templateName, 
 			String filePath, 
 			String fileName, 
-			String packName,
+			String classPath,
 			String tableName,
 			List<TableStructure> tableInfo,
 			String beanName) {
@@ -119,12 +132,12 @@ public class GenerateCodeService {
 			Map<String, Object> dataModal = new HashMap<String, Object>();
 			
 			if("bean".equals(templateName)) {
-				dataModal.put("classPath", packName);
+				dataModal.put("classPath", classPath);
 				dataModal.put("tableName", tableName);
 				dataModal.put("className", fileName);
 				dataModal.put("fields", tableInfo);
 			} else if("repository".equals(templateName)) {
-				dataModal.put("classPath", packName);
+				dataModal.put("classPath", classPath);
 				dataModal.put("packName", tableName);
 				dataModal.put("beanName", beanName);
 				dataModal.put("className", fileName);
