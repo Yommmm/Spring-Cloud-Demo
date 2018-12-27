@@ -2,7 +2,7 @@ package ${classPath};
 
 import com.zlst.database.core.dao.BaseRepository;
 import com.zlst.module.${packName}.bean.${beanName};
-import com.zlst.module.${packName}.repository.${repoName};
+import com.zlst.module.${packName}.repository.${beanName}Repository;
 
 import com.zlst.database.common.Common;
 import com.zlst.database.common.ZlstBeanUtils;
@@ -15,12 +15,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Service
-public class ${className} extends QueryAndOperateServ<${beanName}, ${repoName}> {
+public class ${className} extends QueryAndOperateServ<${beanName}, ${beanName}Repository> {
 	
     private static final Logger logger = LoggerFactory.getLogger(${className}.class);
     
     @Autowired
-    private ${repoName} ${repoVarName};
+    private ${beanName}Repository ${packName}Repository;
     
 }
 

@@ -75,7 +75,6 @@ public class GenerateCodeService {
 					"com.zlst.module." + packName + ".bean", 
 					null, 
 					null,
-					null,
 					tableName,
 					tableInfo);
 			
@@ -87,7 +86,6 @@ public class GenerateCodeService {
 					"com.zlst.module." + packName + ".repository", 
 					packName, 
 					beanName, 
-					null,
 					null, 
 					null);
 			
@@ -99,7 +97,17 @@ public class GenerateCodeService {
 					"com.zlst.module." + packName + ".service", 
 					packName, 
 					beanName, 
-					beanName + "Repository", 
+					null, 
+					null);
+			
+			// 生成Service
+			this.generateFile(templatePath, 
+					"controller", 
+					packParent + packName + "/" + "controller/", 
+					beanName + "Controller",
+					"com.zlst.module." + packName + ".controller", 
+					packName, 
+					beanName, 
 					null, 
 					null);
 			
@@ -119,7 +127,6 @@ public class GenerateCodeService {
 	 * @param classPath 包路径
 	 * @param packName 根包名
 	 * @param beanName 实体名
-	 * @param repoName dao名
 	 * @param tableName 表名
 	 * @param tableInfo 表结构信息
 	 */
@@ -130,7 +137,6 @@ public class GenerateCodeService {
 			String classPath, 
 			String packName, 
 			String beanName, 
-			String repoName,
 			String tableName, 
 			List<TableStructure> tableInfo) {
 		// step1 创建freeMarker配置实例
@@ -158,10 +164,11 @@ public class GenerateCodeService {
 				dataModal.put("packName", packName);
 				dataModal.put("beanName", beanName);
 				dataModal.put("className", fileName);
-				dataModal.put("repoName", repoName);
-				dataModal.put("repoVarName", packName + "Repository");
 			} else if("controller".equals(templateName)) {
-				
+				dataModal.put("classPath", classPath);
+				dataModal.put("packName", packName);
+				dataModal.put("beanName", beanName);
+				dataModal.put("className", fileName);
 			}
 
 			// step4 加载模版文件
