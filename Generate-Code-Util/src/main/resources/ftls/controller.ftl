@@ -2,12 +2,7 @@ package ${classPath};
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,5 +21,50 @@ public class ${className} extends QueryAndOperateCtrl<${beanName}, ${beanName}Se
     
     @Autowired
     private ${beanName}Service ${packName}Service;
+    
+    /**
+	 * 增
+	 * @param ${packName} XXXX
+	 */
+    @PostMapping
+    public Object save${beanName}(@RequestBody ${beanName} ${packName}) {
+    	return ObjectToResult.getResult("success");
+    }
+    
+    /**
+	 * 删
+	 * @param ${packName}Id XXXX
+	 */
+    @DeleteMapping("/{${packName}Id}")
+    public Object del${beanName}(@PathVariable String ${packName}Id) {
+    	return ObjectToResult.getResult("success");
+    }
+    
+    /**
+	 * 改
+	 * @param ${packName} XXXX
+	 */
+    @PutMapping
+    public Object update${beanName}(@RequestBody ${beanName} ${packName}) {
+    	return ObjectToResult.getResult("success");
+    }
+    
+    /**
+	 * 查
+	 * @param ${packName}Id XXXX
+	 */
+    @GetMapping("/{${packName}Id}")
+    public Object get${beanName}(@PathVariable String ${packName}Id) {
+    	return ObjectToResult.getResult("success");
+    }
+    
+    /**
+	 * 查
+	 * @param ${packName} XXXX
+	 */
+    @PostMapping("/queryWithPage")
+    public Object get${beanName}(@RequestBody ${beanName} ${packName}) {
+    	return ObjectToResult.getResult("success");
+    }
     
 }
