@@ -20,6 +20,11 @@ public class ModelParams {
 	private String filePathPre;
 	
 	/**
+	 * 生成文件的路径
+	 */
+	private String filePath;
+	
+	/**
 	 * 文件名/类名
 	 */
 	private String fileName; 
@@ -121,6 +126,14 @@ public class ModelParams {
 
 	public void setClassPathPre(String classPathPre) {
 		this.classPathPre = classPathPre;
+	}
+
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
 	}
 	
 	

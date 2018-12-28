@@ -2,12 +2,10 @@ package com.boot.service.factory;
 
 import org.springframework.stereotype.Component;
 
-import com.boot.entity.ModelParams;
-
 @Component
 public class CodeFactoryProducer {
 
-	public CodeModel getFactory(String factoryType, ModelParams modelParams) {
+	public CodeModel getFactory(String factoryType) {
 		if(null == factoryType || "".equals(factoryType)) {
 			return null;
 		}

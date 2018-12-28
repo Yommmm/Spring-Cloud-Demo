@@ -8,7 +8,7 @@ import com.boot.entity.ModelParams;
 public class RepositoryModel implements CodeModel {
 
 	@Override
-	public Map<String, Object> generateCode(ModelParams modelParams) {
+	public void generateCode(ModelParams modelParams) {
 		Map<String, Object> dataParams = new HashMap<>();
 		
 		dataParams.put("classPath", modelParams.getClassPathPre() + modelParams.getPackName() + ".repository");
@@ -16,7 +16,6 @@ public class RepositoryModel implements CodeModel {
 		dataParams.put("beanName", modelParams.getBeanName());
 		dataParams.put("className", modelParams.getFileName());
 		
-		return dataParams;
 	}
 
 }

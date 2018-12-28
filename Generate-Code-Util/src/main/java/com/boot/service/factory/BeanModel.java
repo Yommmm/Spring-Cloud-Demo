@@ -5,10 +5,13 @@ import java.util.Map;
 
 import com.boot.entity.ModelParams;
 
-public class BeanModel implements CodeModel {
+public class BeanModel extends AbstractCodelModel {
 
 	@Override
-	public Map<String, Object> generateCode(ModelParams modelParams) {
+	public void generateCode(ModelParams modelParams) {
+		modelParams.setFilePath(modelParams.getFilePathPre() + modelParams.getPackName() + "/bean/");
+		modelParams.setTemplateName("bean");
+		
 		Map<String, Object> dataParams = new HashMap<>();
 		
 		dataParams.put("classPath", modelParams.getClassPathPre() + modelParams.getPackName() + ".bean");
@@ -16,7 +19,7 @@ public class BeanModel implements CodeModel {
 		dataParams.put("className", modelParams.getFileName());
 		dataParams.put("fields", modelParams.getTableInfo());
 		
-		return dataParams;
+		this.generateFile(modelParams, dataParams);
 	}
 
 }
