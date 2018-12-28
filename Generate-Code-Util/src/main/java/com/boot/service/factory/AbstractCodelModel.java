@@ -37,7 +37,7 @@ public class AbstractCodelModel implements CodeModel {
 			
 			// 输出文件
 			template.process(dataParams, out);
-			System.out.println("表" + modelParams.getTableName() + "生成" + modelParams.getFileName() + ".java实体成功，路径为：" + docFile.getPath());
+			System.out.println("表 " + modelParams.getTableName() + " 生成 " + modelParams.getFileName() + ".java 文件成功，路径为：" + docFile.getPath());
 			
 		} catch (Exception e) {
 			e.printStackTrace();

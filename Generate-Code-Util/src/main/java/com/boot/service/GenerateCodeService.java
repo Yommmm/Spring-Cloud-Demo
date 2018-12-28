@@ -42,7 +42,7 @@ public class GenerateCodeService {
 		List<String> tableList = dbService.getTableList();
 		
 		for(String tableName : tableList) {
-			System.out.println("开始生成表" + tableName + "的实体类...");
+			System.out.println("开始生成表 " + tableName + " 的Java源码文件...");
 			List<TableStructure> tableInfo = dbService.getTableInfo(tableName);
 			String tableNameDeal = null;
 			if(tableName.indexOf("lms_wms_") > -1) {
@@ -87,7 +87,7 @@ public class GenerateCodeService {
 			CodeModel controllerFactory = codeFactoryProducer.getFactory("controller");
 			controllerFactory.generateCode(modelParams);
 			
-			System.out.println("生成表" + tableName + "的实体类成功！\n");
+			System.out.println("生成表 " + tableName + " 的Java源码文件成功！\n");
 		}
 		
 	}
