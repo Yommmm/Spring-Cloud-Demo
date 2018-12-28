@@ -78,6 +78,9 @@ public class GenerateCodeService {
 			CodeModel beanFactory = codeFactoryProducer.getFactory("bean");
 			beanFactory.generateCode(modelParams);
 			
+			CodeModel voFactory = codeFactoryProducer.getFactory("vo");
+			voFactory.generateCode(modelParams);
+			
 			CodeModel repositoryFactory = codeFactoryProducer.getFactory("repository");
 			repositoryFactory.generateCode(modelParams);
 			
@@ -86,6 +89,7 @@ public class GenerateCodeService {
 			
 			CodeModel controllerFactory = codeFactoryProducer.getFactory("controller");
 			controllerFactory.generateCode(modelParams);
+			
 			
 			System.out.println("生成表 " + tableName + " 的Java源码文件成功！\n");
 		}

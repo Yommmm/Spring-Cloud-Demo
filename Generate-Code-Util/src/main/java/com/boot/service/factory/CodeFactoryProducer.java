@@ -14,6 +14,10 @@ public class CodeFactoryProducer {
 			return new BeanModel();
 		}
 		
+		if(factoryType.equalsIgnoreCase("vo")) {
+			return new VOModel();
+		}
+		
 		if(factoryType.equalsIgnoreCase("repository")) {
 			return new RepositoryModel();
 		}
