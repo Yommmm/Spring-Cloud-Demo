@@ -15,6 +15,7 @@ import com.zlst.param.ObjectToResult;
 
 @RestController
 @RequestMapping("/wms/v1/${packName}")
+@EnableAutoConfiguration
 public class ${className} extends QueryAndOperateCtrl<${beanName}, ${beanName}Service> {
 	
     private static final Logger logger = LoggerFactory.getLogger(${className}.class);
@@ -27,8 +28,8 @@ public class ${className} extends QueryAndOperateCtrl<${beanName}, ${beanName}Se
 	 * @param ${packName} XXXX
 	 */
     @PostMapping
-    public Object save${beanName}(@RequestBody ${beanName} ${packName}) {
-    	return ObjectToResult.getResult("success");
+    public Object save${beanName}(@RequestBody ${beanName} ${packName}) throws Exception {
+    	return ObjectToResult.getResult(${packName}Service.save${beanName}(${packName}));
     }
     
     /**
@@ -36,17 +37,18 @@ public class ${className} extends QueryAndOperateCtrl<${beanName}, ${beanName}Se
 	 * @param ${packName}Id XXXX
 	 */
     @DeleteMapping("/{${packName}Id}")
-    public Object del${beanName}(@PathVariable String ${packName}Id) {
-    	return ObjectToResult.getResult("success");
+    public Object del${beanName}(@PathVariable String ${packName}Id) throws Exception {
+    	return ObjectToResult.getResult(${packName}Service.del${beanName}(${packName}Id));
     }
     
     /**
 	 * 改
+	 * @param ${packName}Id XXXX
 	 * @param ${packName} XXXX
 	 */
-    @PutMapping
-    public Object update${beanName}(@RequestBody ${beanName} ${packName}) {
-    	return ObjectToResult.getResult("success");
+    @PutMapping("/{${packName}Id}")
+    public Object update${beanName}(@PathVariable String ${packName}Id, @RequestBody ${beanName} ${packName}) throws Exception {
+    	return ObjectToResult.getResult(${packName}Service.update${beanName}(${packName}Id, ${packName}));
     }
     
     /**
@@ -54,8 +56,8 @@ public class ${className} extends QueryAndOperateCtrl<${beanName}, ${beanName}Se
 	 * @param ${packName}Id XXXX
 	 */
     @GetMapping("/{${packName}Id}")
-    public Object get${beanName}(@PathVariable String ${packName}Id) {
-    	return ObjectToResult.getResult("success");
+    public Object get${beanName}(@PathVariable String ${packName}Id) throws Exception {
+    	return ObjectToResult.getResult(${packName}Service.get${beanName}(${packName}Id));
     }
     
     /**
@@ -63,8 +65,8 @@ public class ${className} extends QueryAndOperateCtrl<${beanName}, ${beanName}Se
 	 * @param ${packName} XXXX
 	 */
     @PostMapping("/queryWithPage")
-    public Object get${beanName}(@RequestBody ${beanName} ${packName}) {
-    	return ObjectToResult.getResult("success");
+    public Object get${beanName}(@RequestBody ${beanName} ${packName}) throws Exception {
+    	return ObjectToResult.getResult(${packName}Service.get${beanName}(${packName}));
     }
     
 }

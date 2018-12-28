@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import com.zlst.common.base.bean.BaseBean;
+import com.zlst.common.base.BaseBean;
 
 @Entity
 @Table(name = "${tableName}")
