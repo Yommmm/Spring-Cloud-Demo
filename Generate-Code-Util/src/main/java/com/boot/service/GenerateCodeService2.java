@@ -75,8 +75,17 @@ public class GenerateCodeService2 {
 			modelParams.setTableName(tableName);
 			modelParams.setTableInfo(tableInfo);
 			
-			CodeModel factory = codeFactoryProducer.getFactory("bean");
-			factory.generateCode(modelParams);
+			CodeModel beanFactory = codeFactoryProducer.getFactory("bean");
+			beanFactory.generateCode(modelParams);
+			
+			CodeModel repositoryFactory = codeFactoryProducer.getFactory("repository");
+			repositoryFactory.generateCode(modelParams);
+			
+			CodeModel serviceFactory = codeFactoryProducer.getFactory("service");
+			serviceFactory.generateCode(modelParams);
+			
+			CodeModel controllerFactory = codeFactoryProducer.getFactory("controller");
+			controllerFactory.generateCode(modelParams);
 			
 			System.out.println("生成表" + tableName + "的实体类成功！\n");
 		}

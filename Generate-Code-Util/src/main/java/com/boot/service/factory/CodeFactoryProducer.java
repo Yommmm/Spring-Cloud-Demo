@@ -22,7 +22,7 @@ public class CodeFactoryProducer {
 			return new ServiceModel();
 		}
 		
-		if(factoryType.equalsIgnoreCase("constroller")) {
+		if(factoryType.equalsIgnoreCase("controller")) {
 			return new ControllerModel();
 		}
 		
