@@ -15,7 +15,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.boot.entity.BaseParams;
 import com.boot.entity.CGConditions;
 import com.boot.entity.TableStructure;
 import com.boot.utils.StringUtil;
