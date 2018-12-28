@@ -15,9 +15,9 @@ public class ModelParams {
 	private String templateName; 
 	
 	/**
-	 * 生成文件的路径
+	 * 生成文件的路径前缀
 	 */
-	private String filePath;
+	private String filePathPre;
 	
 	/**
 	 * 文件名/类名
@@ -29,7 +29,7 @@ public class ModelParams {
 	 * 第一行
 	 * package com.xxx.xxx.xxx
 	 */
-	private String classPath;
+	private String classPathPre;
 	
 	/**
 	 * 模块根包名
@@ -67,28 +67,12 @@ public class ModelParams {
 		this.templateName = templateName;
 	}
 
-	public String getFilePath() {
-		return filePath;
-	}
-
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
-	}
-
 	public String getFileName() {
 		return fileName;
 	}
 
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
-	}
-
-	public String getClassPath() {
-		return classPath;
-	}
-
-	public void setClassPath(String classPath) {
-		this.classPath = classPath;
 	}
 
 	public List<TableStructure> getTableInfo() {
@@ -121,6 +105,22 @@ public class ModelParams {
 
 	public void setTableName(String tableName) {
 		this.tableName = tableName;
+	}
+
+	public String getFilePathPre() {
+		return filePathPre;
+	}
+
+	public void setFilePathPre(String filePathPre) {
+		this.filePathPre = filePathPre;
+	}
+
+	public String getClassPathPre() {
+		return classPathPre;
+	}
+
+	public void setClassPathPre(String classPathPre) {
+		this.classPathPre = classPathPre;
 	}
 	
 	

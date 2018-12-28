@@ -8,10 +8,10 @@ import com.boot.entity.ModelParams;
 public class BeanModel implements CodeModel {
 
 	@Override
-	public Map<String, Object> generateCode(String modelType, ModelParams modelParams) {
+	public Map<String, Object> generateCode(ModelParams modelParams) {
 		Map<String, Object> dataParams = new HashMap<>();
 		
-		dataParams.put("classPath", modelParams.getClassPath());
+		dataParams.put("classPath", modelParams.getClassPathPre() + modelParams.getPackName() + ".bean");
 		dataParams.put("tableName", modelParams.getTableName());
 		dataParams.put("className", modelParams.getFileName());
 		dataParams.put("fields", modelParams.getTableInfo());

@@ -6,6 +6,6 @@ import com.boot.entity.ModelParams;
 
 public interface CodeModel {
 
-	Map<String, Object> generateCode(String modelType, ModelParams modelParams);
+	Map<String, Object> generateCode(ModelParams modelParams);
 	
 }
