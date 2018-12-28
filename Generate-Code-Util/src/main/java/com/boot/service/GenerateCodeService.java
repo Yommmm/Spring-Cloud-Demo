@@ -1,14 +1,6 @@
 package com.boot.service;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,11 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.boot.entity.CGConditions;
+import com.boot.entity.ModelParams;
 import com.boot.entity.TableStructure;
+import com.boot.service.factory.CodeFactoryProducer;
+import com.boot.service.factory.CodeModel;
 import com.boot.utils.StringUtil;
-
-import freemarker.template.Configuration;
-import freemarker.template.Template;
 
 /**
  * 代码生成类
@@ -35,12 +27,17 @@ public class GenerateCodeService {
 	@Autowired
 	private DBService dbService;
 	
+	@Autowired
+	private CodeFactoryProducer codeFactoryProducer;
+	
 	public void generateCode(CGConditions cgCondition) {
 		// 数据模板目录
 		String templatePath = "src/main/resources/ftls";
 		
 		// 生成文件的父目录
-		String packParent = "target/module/";
+		String filePathPre = "target/module/";
+		
+		String classPathPre = "com.zlst.module.";
 		
 		List<String> tableList = dbService.getTableList();
 		
@@ -66,157 +63,33 @@ public class GenerateCodeService {
 			String packName = StringUtil.underlineToCamel(tableNameDeal);
 			String beanName = StringUtil.firstCharToUpCase(packName);
 			
-			// 生成实体类
-			this.generateFile(templatePath, 
-					"bean", 
-					packParent + packName + "/" + "bean/", 
-					beanName, 
-					"com.zlst.module." + packName + ".bean", 
-					null, 
-					null,
-					tableName,
-					tableInfo);
+			ModelParams modelParams = new ModelParams();
+			modelParams.setTemplatePath(templatePath);
+			modelParams.setTemplateName(null);
+			modelParams.setFilePathPre(filePathPre);
+			modelParams.setFilePath(null);
+			modelParams.setFileName(beanName);
+			modelParams.setClassPathPre(classPathPre);
+			modelParams.setPackName(packName);
+			modelParams.setBeanName(beanName);
+			modelParams.setTableName(tableName);
+			modelParams.setTableInfo(tableInfo);
 			
-			// 生成DAO
-			this.generateFile(templatePath, 
-					"repository", 
-					packParent + packName + "/" + "repository/", 
-					beanName + "Repository", 
-					"com.zlst.module." + packName + ".repository", 
-					packName, 
-					beanName, 
-					null, 
-					null);
+			CodeModel beanFactory = codeFactoryProducer.getFactory("bean");
+			beanFactory.generateCode(modelParams);
 			
-			// 生成Service
-			this.generateFile(templatePath, 
-					"service", 
-					packParent + packName + "/" + "service/",
-					beanName + "Service", 
-					"com.zlst.module." + packName + ".service", 
-					packName, 
-					beanName, 
-					null, 
-					null);
+			CodeModel repositoryFactory = codeFactoryProducer.getFactory("repository");
+			repositoryFactory.generateCode(modelParams);
 			
-			// 生成Service
-			this.generateFile(templatePath, 
-					"controller", 
-					packParent + packName + "/" + "controller/", 
-					beanName + "Controller",
-					"com.zlst.module." + packName + ".controller", 
-					packName, 
-					beanName, 
-					null, 
-					null);
+			CodeModel serviceFactory = codeFactoryProducer.getFactory("service");
+			serviceFactory.generateCode(modelParams);
+			
+			CodeModel controllerFactory = codeFactoryProducer.getFactory("controller");
+			controllerFactory.generateCode(modelParams);
 			
 			System.out.println("生成表" + tableName + "的实体类成功！\n");
 		}
 		
-	}
-	
-	
-	
-	/**
-	 * 
-	 * @param templatePath 模板路径
-	 * @param templateName 模板名称
-	 * @param filePath 目标文件夹
-	 * @param fileName 目标文件名
-	 * @param classPath 包路径
-	 * @param packName 根包名
-	 * @param beanName 实体名
-	 * @param tableName 表名
-	 * @param tableInfo 表结构信息
-	 */
-	private void generateFile(String templatePath, 
-			String templateName, 
-			String filePath, 
-			String fileName, 
-			String classPath, 
-			String packName, 
-			String beanName, 
-			String tableName, 
-			List<TableStructure> tableInfo) {
-		// step1 创建freeMarker配置实例
-		Configuration configuration = new Configuration(Configuration.VERSION_2_3_28);
-		Writer out = null;
-		try {
-			// step2 获取模版路径
-			configuration.setDirectoryForTemplateLoading(new File(templatePath));
-			
-			// step3 创建数据模型
-			Map<String, Object> dataModal = new HashMap<String, Object>();
-			
-			if("bean".equals(templateName)) {
-				dataModal.put("classPath", classPath);
-				dataModal.put("tableName", tableName);
-				dataModal.put("className", fileName);
-				dataModal.put("fields", tableInfo);
-			} else if("repository".equals(templateName)) {
-				dataModal.put("classPath", classPath);
-				dataModal.put("packName", packName);
-				dataModal.put("beanName", beanName);
-				dataModal.put("className", fileName);
-			} else if("service".equals(templateName)) {
-				dataModal.put("classPath", classPath);
-				dataModal.put("packName", packName);
-				dataModal.put("beanName", beanName);
-				dataModal.put("className", fileName);
-			} else if("controller".equals(templateName)) {
-				dataModal.put("classPath", classPath);
-				dataModal.put("packName", packName);
-				dataModal.put("beanName", beanName);
-				dataModal.put("className", fileName);
-			}
-
-			// step4 加载模版文件
-			Template template = configuration.getTemplate(templateName + ".ftl");
-			
-			// step5 生成数据
-			File docFile = this.generateFile(filePath, fileName + ".java");
-			out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(docFile)));
-			
-			// step6 输出文件
-			template.process(dataModal, out);
-			System.out.println("表" + tableName + "生成" + fileName + ".java实体成功，路径为：" + docFile.getPath());
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (null != out) {
-					out.flush();
-					out.close();
-				}
-			} catch (Exception e2) {
-				e2.printStackTrace();
-			}
-		}
-	}
-	
-	/**
-	 * 创建文件方法
-	 * @param path 
-	 * @param fileName
-	 * @return
-	 * @throws IOException
-	 */
-	private File generateFile(String filePath, String fileName) throws IOException {
-		// 指定路径如果没有则创建并添加
-		File file = new File(filePath + fileName);
-		
-		// 获取父目录
-		File fileParent = file.getParentFile();
-		
-		//判断是否存在
-		if (!fileParent.exists()) {
-			// 创建父目录文件
-			fileParent.mkdirs();
-		}
-		file.createNewFile();
-		
-		return file;
 	}
 	
 	private String dataType(String dataType) {
