@@ -65,8 +65,8 @@ public class ${className} extends QueryAndOperateCtrl<${beanName}, ${beanName}Se
 	 * @param ${packName} XXXX
 	 */
     @PostMapping("/queryWithPage")
-    public Object get${beanName}(@RequestBody ${beanName} ${packName}) throws Exception {
-    	return ObjectToResult.getResult(${packName}Service.get${beanName}(${packName}));
+    public Object get${beanName}(@RequestBody ${beanName}VO ${packName}VO) throws Exception {
+    	return ObjectToResult.getResult(${packName}Service.get${beanName}(${packName}VO));
     }
     
 }
