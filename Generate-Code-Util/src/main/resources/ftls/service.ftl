@@ -65,7 +65,7 @@ public class ${className} extends QueryAndOperateServ<${beanName}, ${beanName}Re
 	 * 查
 	 * @param ${packName} XXXX
 	 */
-    public Page<${beanName}> get${beanName}(${beanName} ${packName}) throws Exception {
+    public Page<${beanName}VO> get${beanName}(${beanName}VO ${packName}VO) throws Exception {
     	return null;
     }
     
