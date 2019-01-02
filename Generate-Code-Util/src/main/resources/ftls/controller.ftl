@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import com.zlst.database.core.ctrl.QueryAndOperateCtrl;
 import com.zlst.module.${packName}.bean.${beanName};
 import com.zlst.module.${packName}.service.${beanName}Service;
+import com.zlst.module.${packName}.vo.${beanName}VO;
 
 import com.zlst.param.ObjectToResult;
 
@@ -27,7 +28,7 @@ public class ${className} extends QueryAndOperateCtrl<${beanName}, ${beanName}Se
 	 * 增
 	 * @param ${packName} XXXX
 	 */
-    @PostMapping
+    @PostMapping("/save")
     public Object save${beanName}(@RequestBody ${beanName} ${packName}) throws Exception {
     	return ObjectToResult.getResult(${packName}Service.save${beanName}(${packName}));
     }

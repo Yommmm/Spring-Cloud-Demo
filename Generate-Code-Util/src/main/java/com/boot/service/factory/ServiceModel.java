@@ -19,6 +19,7 @@ public class ServiceModel extends AbstractCodelModel {
 		dataParams.put("packName", modelParams.getPackName());
 		dataParams.put("beanName", modelParams.getBeanName());
 		dataParams.put("className", modelParams.getFileName());
+		dataParams.put("tableName", modelParams.getTableName());
 		
 		this.generateFile(modelParams, dataParams);
 	}
