@@ -38,6 +38,7 @@ public class GenerateCodeService {
 		
 		// 生成文件的父目录
 		String filePathPre = "target/module/";
+		String frontFilePathPre = "target/page/";
 		
 		String classPathPre = "com.zlst.module.";
 		
@@ -69,6 +70,9 @@ public class GenerateCodeService {
 			modelParams.setTableName(tableName);
 			modelParams.setTableInfo(tableInfo);
 			
+			/**
+			 * 后端代码工厂
+			 */
 			CodeModel beanFactory = codeFactoryProducer.getFactory("bean");
 			beanFactory.generateCode(modelParams);
 			
@@ -83,6 +87,14 @@ public class GenerateCodeService {
 			
 			CodeModel controllerFactory = codeFactoryProducer.getFactory("controller");
 			controllerFactory.generateCode(modelParams);
+			
+			// 前端代码生成路径
+			modelParams.setFilePathPre(frontFilePathPre);
+			
+			/**
+			 * 前端代码工厂
+			 */
+			
 			
 			
 			System.out.println("生成表 " + tableName + " 的Java源码文件成功！\n");

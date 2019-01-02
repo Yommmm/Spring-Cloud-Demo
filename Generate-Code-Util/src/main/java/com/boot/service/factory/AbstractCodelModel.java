@@ -20,7 +20,7 @@ public class AbstractCodelModel implements CodeModel {
 		
 	}
 	
-	public void generateFile(ModelParams modelParams, Map<String, Object> dataParams) {
+	public void generateFile(ModelParams modelParams, Map<String, Object> dataParams, boolean isFront) {
 		// 创建freeMarker配置实例
 		Configuration configuration = new Configuration(Configuration.VERSION_2_3_28);
 		Writer out = null;
@@ -32,7 +32,7 @@ public class AbstractCodelModel implements CodeModel {
 			Template template = configuration.getTemplate(modelParams.getTemplateName() + ".ftl");
 			
 			// 生成数据
-			File docFile = this.generateFile(modelParams.getFilePath(), modelParams.getFileName() + ".java");
+			File docFile = this.generateFile(modelParams.getFilePath(), modelParams.getFileName() + (isFront ? ".vue" : ".java"));
 			out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(docFile)));
 			
 			// 输出文件

@@ -20,7 +20,7 @@ public class RepositoryModel extends AbstractCodelModel {
 		dataParams.put("beanName", modelParams.getBeanName());
 		dataParams.put("className", modelParams.getFileName());
 		
-		this.generateFile(modelParams, dataParams);
+		this.generateFile(modelParams, dataParams, false);
 	}
 
 }

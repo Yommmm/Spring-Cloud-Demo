@@ -19,7 +19,7 @@ public class BeanModel extends AbstractCodelModel {
 		dataParams.put("className", modelParams.getFileName());
 		dataParams.put("fields", modelParams.getTableInfo());
 		
-		this.generateFile(modelParams, dataParams);
+		this.generateFile(modelParams, dataParams, false);
 	}
 
 }
