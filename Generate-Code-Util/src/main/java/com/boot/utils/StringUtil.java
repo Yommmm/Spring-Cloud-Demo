@@ -81,4 +81,14 @@ public class StringUtil {
 		return target;
 	}
 	
+	public static String removeAfterChars(String source, String chars) {
+		int indexOf = source.indexOf(chars);
+		if(indexOf > -1) {
+			indexOf = indexOf > 10 ? 10 : indexOf;
+			return source.substring(0, indexOf);
+		} else {
+			return source;
+		}
+	}
+	
 }

@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
 
 import com.boot.entity.TableStructure;
+import com.boot.utils.StringUtil;
 
 @Service
 public class DBService {
@@ -43,22 +44,51 @@ public class DBService {
 	 * @return
 	 */
 	public List<TableStructure> getTableInfo(String tableName) {
-		List<TableStructure> queryResult = jdbcTemplate.query("DESC " + tableName, new RowMapper<TableStructure>() {
+		StringBuilder sql = new StringBuilder("SELECT t.COLUMN_NAME, t.DATA_TYPE, ");
+		sql.append("t.CHARACTER_MAXIMUM_LENGTH AS MAX_LENGTH, t.IS_NULLABLE, t.COLUMN_KEY, t.COLUMN_COMMENT ");
+		sql.append("FROM INFORMATION_SCHEMA.COLUMNS t ");
+		sql.append("WHERE TABLE_NAME = '" + tableName + "' ");
+		sql.append("AND t.TABLE_SCHEMA = 'logistics_wms_dev' ");
+		sql.append("ORDER BY t.ORDINAL_POSITION ASC");
+		
+		List<TableStructure> queryResult = jdbcTemplate.query(sql.toString(), new RowMapper<TableStructure>() {
             
             public TableStructure mapRow(ResultSet rs, int rowNum)
                     throws SQLException {
             	TableStructure tableStructure = new TableStructure();
-            	tableStructure.setField(rs.getString("Field"));
-            	tableStructure.setType(rs.getString("Type"));
-            	tableStructure.setNullable(rs.getString("Null"));
-            	tableStructure.setKey(rs.getString("Key"));
-            	tableStructure.setDefaultable(rs.getString("Default"));
-            	tableStructure.setExtra(rs.getString("Extra"));
+            	tableStructure.setField(rs.getString("COLUMN_NAME"));
+            	tableStructure.setType(rs.getString("DATA_TYPE"));
+            	tableStructure.setNullable(rs.getString("IS_NULLABLE"));
+            	tableStructure.setKey(rs.getString("COLUMN_KEY"));
+            	tableStructure.setMaxLength(rs.getDouble("MAX_LENGTH"));
+            	tableStructure.setColumnComment(rs.getString("COLUMN_COMMENT"));
                 return tableStructure;
             }
         });
 		
+		for(TableStructure tableStructure : queryResult) {
+			tableStructure.setType(this.dataType(tableStructure.getType()));
+			tableStructure.setFieldName(StringUtil.underlineToCamel(tableStructure.getField()));
+			
+			String fieldName = tableStructure.getFieldName();
+			tableStructure.setUcFieldName(StringUtil.firstCharToUpCase(fieldName));
+			tableStructure.setFrontColumnName(StringUtil.removeAfterChars(tableStructure.getColumnComment(), "\n"));
+		}
+		
 		return queryResult;
+	}
+	
+	private String dataType(String dataType) {
+		if(dataType.indexOf("varchar") > -1) {
+			return "String";
+		} else if(dataType.indexOf("decimal") > -1) {
+			return "BigDecimal";
+		} else if(dataType.indexOf("datetime") > -1) {
+			return "Date";
+		} else {
+			return "?";
+		}
+		
 	}
 	
 }

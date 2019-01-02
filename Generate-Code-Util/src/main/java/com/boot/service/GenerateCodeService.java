@@ -31,6 +31,8 @@ public class GenerateCodeService {
 	private CodeFactoryProducer codeFactoryProducer;
 	
 	public void generateCode(CGConditions cgCondition) {
+		logger.info("start...");
+		
 		// 数据模板目录
 		String templatePath = "src/main/resources/ftls";
 		
@@ -43,7 +45,6 @@ public class GenerateCodeService {
 		
 		for(String tableName : tableList) {
 			System.out.println("开始生成表 " + tableName + " 的Java源码文件...");
-			List<TableStructure> tableInfo = dbService.getTableInfo(tableName);
 			String tableNameDeal = null;
 			if(tableName.indexOf("lms_wms_") > -1) {
 				tableNameDeal = StringUtil.removePrefix(tableName, "lms_wms_");
@@ -51,14 +52,7 @@ public class GenerateCodeService {
 				System.out.println("生成失败！表" + tableName + "已被过滤！\n");
 				continue;
 			}
-			
-			for(TableStructure tableStructure : tableInfo) {
-				tableStructure.setType(this.dataType(tableStructure.getType()));
-				tableStructure.setFieldName(StringUtil.underlineToCamel(tableStructure.getField()));
-				
-				String fieldName = tableStructure.getFieldName();
-				tableStructure.setUcFieldName(StringUtil.firstCharToUpCase(fieldName));
-			}
+			List<TableStructure> tableInfo = dbService.getTableInfo(tableName);
 			
 			String packName = StringUtil.underlineToCamel(tableNameDeal);
 			String beanName = StringUtil.firstCharToUpCase(packName);
@@ -94,19 +88,7 @@ public class GenerateCodeService {
 			System.out.println("生成表 " + tableName + " 的Java源码文件成功！\n");
 		}
 		
-	}
-	
-	private String dataType(String dataType) {
-		if(dataType.indexOf("varchar") > -1) {
-			return "String";
-		} else if(dataType.indexOf("decimal") > -1) {
-			return "BigDecimal";
-		} else if(dataType.indexOf("datetime") > -1) {
-			return "Date";
-		} else {
-			return "?";
-		}
-		
+		logger.info("finish...");
 	}
 	
 }

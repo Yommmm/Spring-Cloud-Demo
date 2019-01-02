@@ -28,6 +28,11 @@ public class TableStructure {
 	private String type;
 	
 	/**
+	 * 数据长度
+	 */
+	private Double maxLength;
+	
+	/**
 	 * 能否为空
 	 */
 	private String nullable;
@@ -38,12 +43,15 @@ public class TableStructure {
 	private String key;
 	
 	/**
-	 * 默认约束
+	 * 注释及描述
 	 */
-	private String defaultable;
+	private String columnComment;
 	
-	private String extra;
-
+	/**
+	 * 前端列名
+	 */
+	private String frontColumnName;
+	
 	public String getField() {
 		return field;
 	}
@@ -76,23 +84,6 @@ public class TableStructure {
 		this.key = key;
 	}
 
-	public String getDefaultable() {
-		return defaultable;
-	}
-
-	public void setDefaultable(String defaultable) {
-		this.defaultable = defaultable;
-	}
-
-	public String getExtra() {
-		return extra;
-	}
-
-	public void setExtra(String extra) {
-		this.extra = extra;
-	}
-
-
 	public String getFieldName() {
 		return fieldName;
 	}
@@ -109,10 +100,35 @@ public class TableStructure {
 		this.ucFieldName = ucFieldName;
 	}
 
+	public Double getMaxLength() {
+		return maxLength;
+	}
+
+	public void setMaxLength(Double maxLength) {
+		this.maxLength = maxLength;
+	}
+
+	public String getColumnComment() {
+		return columnComment;
+	}
+
+	public void setColumnComment(String columnComment) {
+		this.columnComment = columnComment;
+	}
+
+	public String getFrontColumnName() {
+		return frontColumnName;
+	}
+
+	public void setFrontColumnName(String frontColumnName) {
+		this.frontColumnName = frontColumnName;
+	}
+	
 	@Override
 	public String toString() {
 		return "TableStructure [field=" + field + ", fieldName=" + fieldName + ", ucFieldName=" + ucFieldName
-				+ ", type=" + type + ", nullable=" + nullable + ", key=" + key + ", defaultable=" + defaultable
-				+ ", extra=" + extra + "]";
+				+ ", type=" + type + ", maxLength=" + maxLength + ", nullable=" + nullable + ", key=" + key
+				+ ", columnComment=" + columnComment + ", frontColumnName=" + frontColumnName + "]";
 	}
+	
 }
