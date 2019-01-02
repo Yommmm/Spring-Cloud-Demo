@@ -11,6 +11,9 @@ public class ${className} extends BaseQuery {
 <#list fields as fields>
     <#if fields.fieldName != "active" && fields.fieldName != "createdBy" && fields.fieldName != "createTime" 
     	&& fields.fieldName != "modifiedBy" && fields.fieldName != "modifyTime">
+    /**
+	 * ${fields.columnComment}
+	 */
 	private ${fields.type} ${fields.fieldName};
 	
 	</#if>

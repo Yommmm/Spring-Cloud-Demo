@@ -25,6 +25,9 @@ public class ${className} extends BaseBean {
 <#list fields as fields>
     <#if fields.fieldName != "active" && fields.fieldName != "createdBy" && fields.fieldName != "createTime" 
     	&& fields.fieldName != "modifiedBy" && fields.fieldName != "modifyTime">
+	/**
+	 * ${fields.columnComment}
+	 */
     <#if fields.key == "PRI">
 	@Id
     @GeneratedValue(generator = "system-uuid")
