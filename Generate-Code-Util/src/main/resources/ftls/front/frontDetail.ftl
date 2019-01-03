@@ -13,7 +13,7 @@
         <div class="content">
 	      <Tabs :animated="false" class="zlst-classic-tabs-d4">
 	        <TabPane label="信息详情">
-	          <${packName}DetailContent :detailsData="detailsData"></${packName}DetailContent>
+	          <${componentPre}-detail-content :detailData="detailData"></${componentPre}-detail-content>
 	        </TabPane>
 	      </Tabs>
         </div>

@@ -108,11 +108,15 @@ public class GenerateCodeService {
 			frontModelParams.setTableInfo(tableInfo);
 			frontModelParams.setComponentPre(StringUtil.camelToCenterline(packName));
 			
+			CodeModel frontPathFactory = codeFactoryProducer.getFactory("frontPath");
+			frontPathFactory.generateCode(frontModelParams);
+			
 			CodeModel frontIndexFactory = codeFactoryProducer.getFactory("frontIndex");
 			frontIndexFactory.generateCode(frontModelParams);
 			
-			CodeModel frontPathFactory = codeFactoryProducer.getFactory("frontPath");
-			frontPathFactory.generateCode(frontModelParams);
+			CodeModel frontDetailFactory = codeFactoryProducer.getFactory("frontDetail");
+			frontDetailFactory.generateCode(frontModelParams);
+			
 			
 			System.out.println("生成表 " + tableName + " 的后端源码文件成功！\n");
 		}
