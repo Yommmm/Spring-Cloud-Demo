@@ -46,7 +46,7 @@ public class GenerateCodeService {
 		List<String> tableList = dbService.getTableList();
 		
 		for(String tableName : tableList) {
-			System.out.println("开始生成表 " + tableName + " 的Java源码文件...");
+			System.out.println("开始生成表 " + tableName + " 对应的源码文件...");
 			String tableNameDeal = null;
 			if(tableName.indexOf("lms_wms_") > -1) {
 				tableNameDeal = StringUtil.removePrefix(tableName, "lms_wms_");
@@ -89,9 +89,6 @@ public class GenerateCodeService {
 			CodeModel controllerFactory = codeFactoryProducer.getFactory("controller");
 			controllerFactory.generateCode(modelParams);
 			
-			// 前端代码生成路径
-			modelParams.setFilePathPre(frontFilePathPre);
-			
 			/**
 			 * 前端代码工厂
 			 */
@@ -121,7 +118,7 @@ public class GenerateCodeService {
 			frontDetailContentFactory.generateCode(frontModelParams);
 			
 			
-			System.out.println("生成表 " + tableName + " 的后端源码文件成功！\n");
+			System.out.println("生成表 " + tableName + " 的源码文件成功！\n");
 		}
 		
 		logger.info("finish...");
