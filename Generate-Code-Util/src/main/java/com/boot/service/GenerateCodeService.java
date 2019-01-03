@@ -100,12 +100,19 @@ public class GenerateCodeService {
 			frontModelParams.setTemplateName(null);
 			frontModelParams.setFilePathPre(frontFilePathPre);
 			frontModelParams.setFilePath(null);
-			frontModelParams.setFileName(tableName.replace("_", "-").toLowerCase());
+			frontModelParams.setFileName(packName);
 			frontModelParams.setClassPathPre(classPathPre);
 			frontModelParams.setPackName(packName);
 			frontModelParams.setBeanName(beanName);
 			frontModelParams.setTableName(tableName);
 			frontModelParams.setTableInfo(tableInfo);
+			frontModelParams.setComponentPre(StringUtil.camelToCenterline(packName));
+			
+			CodeModel frontIndexFactory = codeFactoryProducer.getFactory("frontIndex");
+			frontIndexFactory.generateCode(frontModelParams);
+			
+			CodeModel frontPathFactory = codeFactoryProducer.getFactory("frontPath");
+			frontPathFactory.generateCode(frontModelParams);
 			
 			System.out.println("生成表 " + tableName + " 的后端源码文件成功！\n");
 		}

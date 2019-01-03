@@ -1,5 +1,5 @@
 <template>
-  <div class="${fileName}-index">
+  <div class="${componentPre}-index">
     <Spin v-if="spinShow" size="large" fix></Spin>
     <!-- 错误 -->
     <error-pages v-if="pageShow === 1" @refresh-page="queryWithPage"></error-pages>
@@ -35,16 +35,16 @@
         </z-page>	  
         </div>
     </zlst-layout-f7>
-    <${fileName}-detail v-if="detailShow" :id="id" @close="close"></${fileName}-detail>
-    <${fileName}-add-edit v-if="addShow" :id="id" @close="close"></${fileName}-add-edit>
+    <${componentPre}-detail v-if="detailShow" :id="id" @close="close"></${componentPre}-detail>
+    <${componentPre}-add-edit v-if="addShow" :id="id" @close="close"></${componentPre}-add-edit>
   </div>
 </template>
 
 <script>
 import utils from "../../tools/utils.js";
-import ${packName}Btn from "./children/${fileName}-btn.vue";
-import ${packName}Detail from "./children/${fileName}-detail.vue";
-import ${packName}AddEdit from "./children/${fileName}-add-edit.vue";
+import ${packName}Btn from "./children/${packName}Btn.vue";
+import ${packName}Detail from "./children/${packName}Detail.vue";
+import ${packName}AddEdit from "./children/${packName}AddEdit.vue";
 export default {
   name: "${packName}Index",
   components: {
@@ -76,7 +76,6 @@ export default {
       	<#list fields as fields>
 		<#if fields.fieldName != "active" && fields.fieldName != "createdBy" && fields.fieldName != "createTime" 
 		  && fields.fieldName != "modifiedBy" && fields.fieldName != "modifyTime">
-		//${fields.columnComment}
 		{
 		  title: "${fields.frontColumnName}",
           align: "center",

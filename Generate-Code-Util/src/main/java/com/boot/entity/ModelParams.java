@@ -50,6 +50,11 @@ public class ModelParams {
 	 * 表名
 	 */
 	private String tableName;
+	
+	/**
+	 * 前端组件名前缀
+	 */
+	private String componentPre;
 
 	/**
 	 * 表数据结构
@@ -135,8 +140,21 @@ public class ModelParams {
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
 	}
-	
-	
-	
+
+	public String getComponentPre() {
+		return componentPre;
+	}
+
+	public void setComponentPre(String componentPre) {
+		this.componentPre = componentPre;
+	}
+
+	@Override
+	public String toString() {
+		return "ModelParams [templatePath=" + templatePath + ", templateName=" + templateName + ", filePathPre="
+				+ filePathPre + ", filePath=" + filePath + ", fileName=" + fileName + ", classPathPre=" + classPathPre
+				+ ", packName=" + packName + ", beanName=" + beanName + ", tableName=" + tableName + ", componentPre="
+				+ componentPre + ", tableInfo=" + tableInfo + "]";
+	}
 	
 }

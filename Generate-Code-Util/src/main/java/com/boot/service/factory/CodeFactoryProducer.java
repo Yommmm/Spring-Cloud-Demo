@@ -2,6 +2,9 @@ package com.boot.service.factory;
 
 import org.springframework.stereotype.Component;
 
+import com.boot.service.factory.front.FrontIndexModel;
+import com.boot.service.factory.front.FrontPathModel;
+
 @Component
 public class CodeFactoryProducer {
 
@@ -28,6 +31,14 @@ public class CodeFactoryProducer {
 		
 		if(factoryType.equalsIgnoreCase("controller")) {
 			return new ControllerModel();
+		}
+		
+		if(factoryType.equalsIgnoreCase("frontIndex")) {
+			return new FrontIndexModel();
+		}
+		
+		if(factoryType.equalsIgnoreCase("frontPath")) {
+			return new FrontPathModel();
 		}
 		
 		return null;
