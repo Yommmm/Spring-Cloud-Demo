@@ -10,25 +10,15 @@ import com.boot.service.GenerateCodeService;
 
 @RestController
 @RequestMapping("/cg/v1/generater")
-public class CGController {
+public class GenerateCodeController {
 	
 	@Autowired
 	private GenerateCodeService generateCodeService;
 	
-	@PostMapping("/bean")
-	public String generateBean(CGConditions cgCondition) {
+	@PostMapping("/service")
+	public String generateCode(CGConditions cgCondition) {
 		generateCodeService.generateCode(cgCondition);
 		return "success";
 	}
 	
-	@PostMapping("/service")
-	public String generateService(CGConditions cgCondition) {
-		return "success";
-	}
-	
-	@PostMapping("/controller")
-	public String generateController(CGConditions cgCondition) {
-		return "success";
-	}
-
 }

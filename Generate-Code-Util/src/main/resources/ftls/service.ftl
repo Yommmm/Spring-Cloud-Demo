@@ -65,9 +65,14 @@ public class ${className} extends QueryAndOperateServ<${beanName}, ${beanName}Re
 	 * 通过${packName}ID查询${beanName}
 	 * @param ${packName}Id XXXX
 	 */
-    public ${beanName} get${beanName}(String ${packName}Id) throws Exception {
+    public ${beanName}VO get${beanName}(String ${packName}Id) throws Exception {
     	${beanName} ${packName} = this.get(${packName}Id);
-    	return ${packName};
+    	${beanName}VO ${packName}VO = new ${beanName}VO();
+    	
+    	BeanUtils.copyProperties(${packName}, ${packName}VO);
+    	this.translate(${packName}VO);
+    	
+    	return ${packName}VO;
     }
     
     /**
