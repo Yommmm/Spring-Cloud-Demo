@@ -12,7 +12,7 @@ public class FrontDetailModel extends AbstractCodelModel {
 	public void generateCode(ModelParams modelParams) {
 		modelParams.setFilePath(modelParams.getFilePathPre() + modelParams.getComponentPre() + "/children/");
 		modelParams.setTemplateName("frontDetail");
-		modelParams.setFileName(modelParams.getFileName() + "Detail");
+		modelParams.setFileName(modelParams.getPackName() + "Detail");
 		
 		Map<String, Object> dataParams = new HashMap<>();
 		

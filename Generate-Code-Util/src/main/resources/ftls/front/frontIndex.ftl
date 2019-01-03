@@ -42,6 +42,7 @@
 
 <script>
 import utils from "../../tools/utils.js";
+import getData from "../../api/server/getData";
 import ${packName}Btn from "./children/${packName}Btn.vue";
 import ${packName}Detail from "./children/${packName}Detail.vue";
 import ${packName}AddEdit from "./children/${packName}AddEdit.vue";
@@ -163,7 +164,7 @@ export default {
 	        className: "ivu-message-error-g"
           });
         }
-      );             
+      });            
     },
     // 页面跳转
     onPageChange: function(page) {

@@ -117,6 +117,9 @@ public class GenerateCodeService {
 			CodeModel frontDetailFactory = codeFactoryProducer.getFactory("frontDetail");
 			frontDetailFactory.generateCode(frontModelParams);
 			
+			CodeModel frontDetailContentFactory = codeFactoryProducer.getFactory("frontDetailContent");
+			frontDetailContentFactory.generateCode(frontModelParams);
+			
 			
 			System.out.println("生成表 " + tableName + " 的后端源码文件成功！\n");
 		}
