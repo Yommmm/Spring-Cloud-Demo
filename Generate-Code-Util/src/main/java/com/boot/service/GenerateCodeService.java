@@ -34,7 +34,8 @@ public class GenerateCodeService {
 		logger.info("start...");
 		
 		// 数据模板目录
-		String templatePath = "src/main/resources/ftls";
+		String templatePath = "src/main/resources/ftls/service";
+		String frontTemplatePath = "src/main/resources/ftls/front";
 		
 		// 生成文件的父目录
 		String filePathPre = "target/module/";
@@ -58,6 +59,9 @@ public class GenerateCodeService {
 			String packName = StringUtil.underlineToCamel(tableNameDeal);
 			String beanName = StringUtil.firstCharToUpCase(packName);
 			
+			/**
+			 * 后端代码工厂
+			 */
 			ModelParams modelParams = new ModelParams();
 			modelParams.setTemplatePath(templatePath);
 			modelParams.setTemplateName(null);
@@ -70,9 +74,6 @@ public class GenerateCodeService {
 			modelParams.setTableName(tableName);
 			modelParams.setTableInfo(tableInfo);
 			
-			/**
-			 * 后端代码工厂
-			 */
 			CodeModel beanFactory = codeFactoryProducer.getFactory("bean");
 			beanFactory.generateCode(modelParams);
 			
@@ -94,10 +95,19 @@ public class GenerateCodeService {
 			/**
 			 * 前端代码工厂
 			 */
+			ModelParams frontModelParams = new ModelParams();
+			frontModelParams.setTemplatePath(frontTemplatePath);
+			frontModelParams.setTemplateName(null);
+			frontModelParams.setFilePathPre(frontFilePathPre);
+			frontModelParams.setFilePath(null);
+			frontModelParams.setFileName(tableName.replace("_", "-").toLowerCase());
+			frontModelParams.setClassPathPre(classPathPre);
+			frontModelParams.setPackName(packName);
+			frontModelParams.setBeanName(beanName);
+			frontModelParams.setTableName(tableName);
+			frontModelParams.setTableInfo(tableInfo);
 			
-			
-			
-			System.out.println("生成表 " + tableName + " 的Java源码文件成功！\n");
+			System.out.println("生成表 " + tableName + " 的后端源码文件成功！\n");
 		}
 		
 		logger.info("finish...");

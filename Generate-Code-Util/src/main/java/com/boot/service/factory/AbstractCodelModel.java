@@ -13,13 +13,8 @@ import com.boot.entity.ModelParams;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
-public class AbstractCodelModel implements CodeModel {
+public abstract class AbstractCodelModel implements CodeModel {
 
-	@Override
-	public void generateCode(ModelParams modelParams) {
-		
-	}
-	
 	public void generateFile(ModelParams modelParams, Map<String, Object> dataParams, boolean isFront) {
 		// 创建freeMarker配置实例
 		Configuration configuration = new Configuration(Configuration.VERSION_2_3_28);
@@ -37,7 +32,7 @@ public class AbstractCodelModel implements CodeModel {
 			
 			// 输出文件
 			template.process(dataParams, out);
-			System.out.println("表 " + modelParams.getTableName() + " 生成 " + modelParams.getFileName() + ".java 文件成功，路径为：" + docFile.getPath());
+			System.out.println("表 " + modelParams.getTableName() + " 生成 " + modelParams.getFileName() + (isFront ? ".vue" : ".java") + " 文件成功，路径为：" + docFile.getPath());
 			
 		} catch (Exception e) {
 			e.printStackTrace();
