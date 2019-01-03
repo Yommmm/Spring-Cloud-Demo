@@ -4,6 +4,11 @@ import org.springframework.stereotype.Component;
 
 import com.boot.service.factory.front.FrontIndexModel;
 import com.boot.service.factory.front.FrontPathModel;
+import com.boot.service.factory.service.BeanModel;
+import com.boot.service.factory.service.ControllerModel;
+import com.boot.service.factory.service.RepositoryModel;
+import com.boot.service.factory.service.ServiceModel;
+import com.boot.service.factory.service.VOModel;
 
 @Component
 public class CodeFactoryProducer {

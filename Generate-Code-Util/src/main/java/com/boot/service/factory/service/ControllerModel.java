@@ -1,9 +1,10 @@
-package com.boot.service.factory;
+package com.boot.service.factory.service;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import com.boot.entity.ModelParams;
+import com.boot.service.factory.AbstractCodelModel;
 
 public class ControllerModel extends AbstractCodelModel {
 
