@@ -27,11 +27,15 @@ public class DBService {
 	 * @return
 	 */
 	public List<String> getTableList() {
-		List<String> queryResult = jdbcTemplate.query("SHOW TABLES", new RowMapper<String>() {
+		StringBuffer sql = new StringBuffer("SELECT t.TABLE_NAME, t.TABLE_COMMENT ");
+		sql.append("FROM INFORMATION_SCHEMA.tables t ");
+		sql.append("WHERE t.TABLE_SCHEMA = " + "'logistics_wms_dev'");
+		
+		List<String> queryResult = jdbcTemplate.query(sql.toString(), new RowMapper<String>() {
             
             public String mapRow(ResultSet rs, int rowNum)
                     throws SQLException {
-            	String result = rs.getString("Tables_in_logistics_wms_dev");
+            	String result = rs.getString("TABLE_NAME");
                 return result;
             }
         });
