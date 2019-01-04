@@ -29,7 +29,7 @@ public class DBService {
 	public List<String> getTableList() {
 		StringBuffer sql = new StringBuffer("SELECT t.TABLE_NAME, t.TABLE_COMMENT ");
 		sql.append("FROM INFORMATION_SCHEMA.tables t ");
-		sql.append("WHERE t.TABLE_SCHEMA = " + "'logistics_wms_dev'");
+		sql.append("WHERE t.TABLE_SCHEMA = " + "'sc_base_dev'");
 		
 		List<String> queryResult = jdbcTemplate.query(sql.toString(), new RowMapper<String>() {
             
@@ -52,7 +52,7 @@ public class DBService {
 		sql.append("t.CHARACTER_MAXIMUM_LENGTH AS MAX_LENGTH, t.IS_NULLABLE, t.COLUMN_KEY, t.COLUMN_COMMENT ");
 		sql.append("FROM INFORMATION_SCHEMA.COLUMNS t ");
 		sql.append("WHERE TABLE_NAME = '" + tableName + "' ");
-		sql.append("AND t.TABLE_SCHEMA = 'logistics_wms_dev' ");
+		sql.append("AND t.TABLE_SCHEMA = 'sc_base_dev' ");
 		sql.append("ORDER BY t.ORDINAL_POSITION ASC");
 		
 		List<TableStructure> queryResult = jdbcTemplate.query(sql.toString(), new RowMapper<TableStructure>() {

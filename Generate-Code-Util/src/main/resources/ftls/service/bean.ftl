@@ -4,6 +4,9 @@ import java.util.Date;
 import java.util.List;
 import java.math.BigDecimal;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,6 +23,7 @@ import com.zlst.common.base.BaseBean;
 
 @Entity
 @Table(name = "${tableName}")
+@ApiModel(value = "${className}", description = "TODO")
 public class ${className} extends BaseBean {
     
 <#list fields as fields>
@@ -34,6 +38,7 @@ public class ${className} extends BaseBean {
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
 	</#if>
     @Column(name = "${fields.field}")
+    @ApiModelProperty(value = "${fields.frontColumnName}")
 	private ${fields.type} ${fields.fieldName};
 	
 	</#if>

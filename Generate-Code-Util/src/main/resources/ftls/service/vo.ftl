@@ -4,8 +4,12 @@ import java.util.Date;
 import java.util.List;
 import java.math.BigDecimal;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import com.zlst.common.base.BaseQuery;
 
+@ApiModel(value = "${className}", description = "TODO")
 public class ${className} extends BaseQuery {
     
 <#list fields as fields>
@@ -14,6 +18,7 @@ public class ${className} extends BaseQuery {
     /**
 	 * ${fields.columnComment}
 	 */
+	@ApiModelProperty(value = "${fields.frontColumnName}")
 	private ${fields.type} ${fields.fieldName};
 	
 	</#if>

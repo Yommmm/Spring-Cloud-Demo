@@ -14,10 +14,17 @@ import com.zlst.module.${packName}.vo.${beanName}VO;
 
 import com.zlst.param.ObjectToResult;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+
+@Api(value = "员工API")
 @RestController
 @RequestMapping("/wms/v1/${packName}")
 @EnableAutoConfiguration
-public class ${className} extends QueryAndOperateCtrl<${beanName}, ${beanName}Service> {
+public class ${className} {
+// public class ${className} extends QueryAndOperateCtrl<${beanName}, ${beanName}Service> {
 	
     private static final Logger logger = LoggerFactory.getLogger(${className}.class);
     
@@ -29,6 +36,8 @@ public class ${className} extends QueryAndOperateCtrl<${beanName}, ${beanName}Se
 	 * @param ${packName} XXXX
 	 */
     @PostMapping("/save")
+	@ApiOperation(value = "新增 TODO description", notes="新增 TODO description API", produces = "application/json")
+	@ApiImplicitParam(name = "${packName}", value = "TODO description", dataType = "${beanName}", required = true)
     public Object save${beanName}(@RequestBody ${beanName} ${packName}) throws Exception {
     	return ObjectToResult.getResult(${packName}Service.save${beanName}(${packName}));
     }
@@ -38,6 +47,8 @@ public class ${className} extends QueryAndOperateCtrl<${beanName}, ${beanName}Se
 	 * @param ${packName}Id XXXX
 	 */
     @DeleteMapping("/{${packName}Id}")
+    @ApiOperation(value = "删除 TODO description", notes="删除 TODO description API", produces = "application/json")
+    @ApiImplicitParam(name = "${packName}Id", value = "TODO description", dataType = "String", paramType = "path")
     public Object del${beanName}(@PathVariable String ${packName}Id) throws Exception {
     	return ObjectToResult.getResult(${packName}Service.del${beanName}(${packName}Id));
     }
@@ -48,6 +59,10 @@ public class ${className} extends QueryAndOperateCtrl<${beanName}, ${beanName}Se
 	 * @param ${packName} XXXX
 	 */
     @PutMapping("/{${packName}Id}")
+	@ApiOperation(value = "更新 TODO description", notes="更新 TODO description API", produces = "application/json")
+	@ApiImplicitParams({ 
+    	@ApiImplicitParam(name = "${packName}Id", value = "TODO description", dataType = "String", paramType = "path") ,
+    	@ApiImplicitParam(name = "${packName}", value = "TODO description", dataType = "${beanName}", paramType = "body")})
     public Object update${beanName}(@PathVariable String ${packName}Id, @RequestBody ${beanName} ${packName}) throws Exception {
     	return ObjectToResult.getResult(${packName}Service.update${beanName}(${packName}Id, ${packName}));
     }
@@ -57,6 +72,8 @@ public class ${className} extends QueryAndOperateCtrl<${beanName}, ${beanName}Se
 	 * @param ${packName}Id XXXX
 	 */
     @GetMapping("/{${packName}Id}")
+    @ApiOperation(value = "查询 TODO description", notes="查询 TODO description API", produces = "application/json")
+    @ApiImplicitParam(name = "${packName}Id", value = "TODO description", dataType = "String", paramType = "path")
     public Object get${beanName}(@PathVariable String ${packName}Id) throws Exception {
     	return ObjectToResult.getResult(${packName}Service.get${beanName}(${packName}Id));
     }
@@ -66,6 +83,8 @@ public class ${className} extends QueryAndOperateCtrl<${beanName}, ${beanName}Se
 	 * @param ${packName} XXXX
 	 */
     @PostMapping("/queryWithPage")
+    @ApiOperation(value = "查询 TODO description", notes="查询 TODO description API", produces = "application/json")
+    @ApiImplicitParam(name = "${packName}VO", value = "TODO description", dataType = "${beanName}VO", paramType = "body")
     public Object get${beanName}(@RequestBody ${beanName}VO ${packName}VO) throws Exception {
     	return ObjectToResult.getResult(${packName}Service.get${beanName}(${packName}VO));
     }

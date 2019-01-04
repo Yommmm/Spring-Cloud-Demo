@@ -48,8 +48,8 @@ public class GenerateCodeService {
 		for(String tableName : tableList) {
 			System.out.println("开始生成表 " + tableName + " 对应的源码文件...");
 			String tableNameDeal = null;
-			if(tableName.indexOf("lms_wms_") > -1) {
-				tableNameDeal = StringUtil.removePrefix(tableName, "lms_wms_");
+			if(tableName.indexOf("lms_bdm_") > -1) {
+				tableNameDeal = StringUtil.removePrefix(tableName, "lms_bdm_");
 			} else {
 				System.out.println("生成失败！表" + tableName + "已被过滤！\n");
 				continue;
