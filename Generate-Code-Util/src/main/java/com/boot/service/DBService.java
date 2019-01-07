@@ -91,6 +91,10 @@ public class DBService {
 			return "Date";
 		} else if(dataType.indexOf("int") > -1) {
 			return "Integer";
+		} else if(dataType.indexOf("double") > -1) {
+			return "Double";
+		} else if(dataType.indexOf("float") > -1) {
+			return "Float";
 		} else {
 			return "?";
 		}
