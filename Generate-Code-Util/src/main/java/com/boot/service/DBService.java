@@ -89,6 +89,8 @@ public class DBService {
 			return "BigDecimal";
 		} else if(dataType.indexOf("datetime") > -1) {
 			return "Date";
+		} else if(dataType.indexOf("int") > -1) {
+			return "Integer";
 		} else {
 			return "?";
 		}
