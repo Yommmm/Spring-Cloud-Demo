@@ -11,6 +11,7 @@ import com.zlst.database.common.Common;
 import com.zlst.database.common.ZlstBeanUtils;
 import com.zlst.database.core.service.QueryAndOperateServ;
 import com.zlst.database.exception.ZlstDatabaseCoreExption;
+import com.zlst.common.constants.GlobalConstants;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +48,7 @@ public class ${className} extends QueryAndOperateServ<${beanName}, ${beanName}Re
 	 */
     public String del${beanName}(String ${packName}Id) throws Exception {
     	${beanName} ${packName} = this.get(${packName}Id);
-    	${packName}.setActive("1");
+    	${packName}.setActive(GlobalConstants.UNDELETED);
     	${packName} = this.update(${packName}Id, ${packName});
     	return ${packName}Id;
     }

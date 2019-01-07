@@ -17,6 +17,7 @@ public class FrontPathModel extends AbstractCodelModel {
 		Map<String, Object> dataParams = new HashMap<>();
 		
 		dataParams.put("packName", modelParams.getPackName());
+		dataParams.put("componentPre", modelParams.getComponentPre());
 		
 		this.generateFile(modelParams, dataParams, true);
 	}
