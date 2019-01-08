@@ -2,7 +2,9 @@ package com.boot.service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +20,25 @@ import com.boot.utils.StringUtil;
 public class DBService {
 
 	private static final Logger logger = LoggerFactory.getLogger(DBService.class);
+	
+	private static final Map<String, String> dataTypeMap = new HashMap<String, String>();
+	
+	static {
+		dataTypeMap.put("varchar", "String");
+		dataTypeMap.put("decimal", "BigDecimal");
+		dataTypeMap.put("date", "Date");
+		dataTypeMap.put("time", "Date");
+		dataTypeMap.put("year", "Date");
+		dataTypeMap.put("datetime", "Date");
+		dataTypeMap.put("tinyint", "Integer");
+		dataTypeMap.put("smallint", "Integer");
+		dataTypeMap.put("mediumint", "Integer");
+		dataTypeMap.put("int", "Integer");
+		dataTypeMap.put("bigint", "Integer");
+		dataTypeMap.put("integer", "Integer");
+		dataTypeMap.put("double", "Double");
+		dataTypeMap.put("float", "Float");
+	}
 	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -83,22 +104,11 @@ public class DBService {
 	}
 	
 	private String dataType(String dataType) {
-		if(dataType.indexOf("varchar") > -1) {
-			return "String";
-		} else if(dataType.indexOf("decimal") > -1) {
-			return "BigDecimal";
-		} else if(dataType.indexOf("datetime") > -1) {
-			return "Date";
-		} else if(dataType.indexOf("int") > -1) {
-			return "Integer";
-		} else if(dataType.indexOf("double") > -1) {
-			return "Double";
-		} else if(dataType.indexOf("float") > -1) {
-			return "Float";
+		if(null != dataTypeMap.get(dataType)) {
+			return dataTypeMap.get(dataType);
 		} else {
 			return "?";
 		}
-		
 	}
 	
 }
