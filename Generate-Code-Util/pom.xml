@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.boot</groupId>
-	<artifactId>Generate-Code-Util</artifactId>
+	<artifactId>Generate-Code-API</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Generate-Code-Util</name>
+	<name>Generate-Code-API</name>
 	<description>Generate-Code-Util</description>
 
 	<properties>
