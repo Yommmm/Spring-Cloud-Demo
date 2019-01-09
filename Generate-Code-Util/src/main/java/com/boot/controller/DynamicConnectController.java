@@ -19,7 +19,7 @@ import com.alibaba.druid.pool.DruidDataSourceFactory;
 
 @RestController
 @RequestMapping("/dynamic/")
-public class TestController {
+public class DynamicConnectController {
 	
 	private JdbcTemplate jdbcTemplate = null;
 	
