@@ -1,4 +1,4 @@
-package com.boot;
+package com.boot.controller;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 
 @RestController
-@RequestMapping("/test/connection")
+@RequestMapping("/dynamic/")
 public class TestController {
 	
 	private JdbcTemplate jdbcTemplate = null;
@@ -83,10 +83,10 @@ public class TestController {
 	
 	private DataSource dataSource() {
 		DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
+		dataSourceBuilder.driverClassName("com.mysql.jdbc.Driver");
 		dataSourceBuilder.url("jdbc:mysql://localhost:3306");
 		dataSourceBuilder.username("root");
 		dataSourceBuilder.password("root");
-		dataSourceBuilder.driverClassName("com.mysql.jdbc.Driver");
 		DataSource build = dataSourceBuilder.build();
 		return build;
 	}
