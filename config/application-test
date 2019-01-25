@@ -1,11 +1,4 @@
-resources.resourceList.resource[0].name=BASE
-resources.resourceList.resource[0].url=http://gateway.scdev.cs2025.cn/gateway/api-supply-chain-base/v2/api-docs
-
-resources.resourceList.resource[1].name=WMS
-resources.resourceList.resource[1].url=http://gateway.scdev.cs2025.cn/gateway/api-supply-chain-wms/v2/api-docs
-
-resources.resourceList.resource[2].name=TMS
-resources.resourceList.resource[2].url=http://gateway.scdev.cs2025.cn/gateway/api-supply-chain-base/v2/api-docs
-
-resources.resourceList.resource[2].name=OMS
-resources.resourceList.resource[2].url=http://gateway.scdev.cs2025.cn/gateway/api-supply-chain-base/v2/api-docs
+citycode.list[0]=www
+citycode.list[1]=localhost
+citycode.list[2]=wuhan
+citycode.list[3]=tianjin
