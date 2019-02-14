@@ -1,0 +1,15 @@
+novellist:
+  list:
+    - name: 笑傲江湖
+      type: 武侠
+      master: 令狐冲
+      author: 金庸
+    - name: 诛仙
+      type: 仙侠
+      master: 张小凡
+      author: 萧
+    - name: 英雄志
+      type: 武侠
+      master: 观海云远
+      author: 孙晓
+      
