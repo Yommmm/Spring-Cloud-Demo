@@ -15,6 +15,17 @@ import io.github.swagger2markup.Swagger2MarkupConverter;
 import io.github.swagger2markup.builder.Swagger2MarkupConfigBuilder;
 import io.github.swagger2markup.markup.builder.MarkupLanguage;
 
+/**
+ * 文档生成工具API
+ * 使用方式：
+ * 1.修改Swagger JSON获取路径
+ * 2.调用ASCIIDOC生成接口
+ * 3.使用maven命令，将生成好的ASCIIDOC文档转换成HTML
+ * 4.使用浏览器打印功能，将HTML转换成可交付使用的PDF文档
+ * 
+ * @author 170186
+ * 
+ */
 @RestController
 @RequestMapping("/boot/v2/docs")
 public class DocController {
