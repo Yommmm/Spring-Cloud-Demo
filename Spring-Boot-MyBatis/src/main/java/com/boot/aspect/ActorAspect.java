@@ -1,9 +1,11 @@
 package com.boot.aspect;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +43,20 @@ public class ActorAspect {
 	@AfterThrowing("execution(** com.boot.service.AspectService.aspect(..))")
 	public void afterThrowing() {
 		System.out.println("舞台炸了！");
+	}
+	
+	@Around(value = "execution(** com.boot.service.AspectService.aspect(..))")
+	public void around(ProceedingJoinPoint pjp) throws Throwable {
+		Object[] args = pjp.getArgs();
+		for(Object arg : args){
+			System.out.println("arg is: " + arg);
+			if("哈哈哈哈哈哈".equals(arg)) {
+				Object proceed = pjp.proceed(new Object[]{arg + "Around"});
+				System.out.println(proceed);
+			} else {
+				System.out.println("不干了");
+			}
+		}
 	}
 
 }

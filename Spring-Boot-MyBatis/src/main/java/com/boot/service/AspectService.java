@@ -14,7 +14,7 @@ public class AspectService {
 	public String aspect(String actor) {
 		
 		if("哈哈哈哈哈哈".equals(actor)) {
-			System.out.println("表演台用力！");
+			System.out.println("表演太用力！");
 			throw new RuntimeException("表演台用力！");
 		}
 		System.out.println(actor + "开始表演！");
