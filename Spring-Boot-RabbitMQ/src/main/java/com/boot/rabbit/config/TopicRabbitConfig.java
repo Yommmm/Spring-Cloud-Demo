@@ -10,33 +10,56 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class TopicRabbitConfig {
 
-	private static final String message = "topic.message";
+	public static final String MESSAGE_A = "topic.messagea";
 	
-	private static final String messages = "topic.messages";
+	public static final String MESSAGE_B = "topic.messageb";
 	
+	public static final String EXCHANGE = "exchange";
+	
+	/**
+	 * 声明队列
+	 * @return
+	 */
 	@Bean
-	public Queue queueMessage() {
-		return new Queue(message);
+	public Queue queueMessageA() {
+		return new Queue(MESSAGE_A);
 	}
 	
+	/**
+	 * 声明队列
+	 * @return
+	 */
 	@Bean
-	public Queue queueMessages() {
-		return new Queue(messages);
+	public Queue queueMessageB() {
+		return new Queue(MESSAGE_B);
 	}
 	
+	/**
+	 * 声明交换机
+	 * @return
+	 */
 	@Bean
     public TopicExchange exchange() {
-        return new TopicExchange("exchange");
+        return new TopicExchange(EXCHANGE);
     }
 	
 	@Bean
-    public Binding bindingExchangeMessage(Queue queueMessage, TopicExchange exchange) {
-        return BindingBuilder.bind(queueMessage).to(exchange).with("topic.message");
+    public Binding bindingExchangeMessage(Queue queueMessageA, TopicExchange exchange) {
+        return BindingBuilder.bind(queueMessageA).to(exchange).with(MESSAGE_B);
     }
 	
+	/**
+	 * 声明RoutingKey绑定
+	 * #代表0个到n个单词
+	 * *代表一个单词
+	 * 具体字符串代表绑定到指定RoutingKey，就像上面那个Bean声明
+	 * @param queueMessageB
+	 * @param exchange
+	 * @return
+	 */
 	@Bean
-    public Binding bindingExchangeMessages(Queue queueMessages, TopicExchange exchange) {
-        return BindingBuilder.bind(queueMessages).to(exchange).with("topic.#");
+    public Binding bindingExchangeMessages(Queue queueMessageB, TopicExchange exchange) {
+        return BindingBuilder.bind(queueMessageB).to(exchange).with("topic.#");
     }
 	
 }

@@ -6,13 +6,11 @@ import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
-import com.boot.rabbit.topic.TopicReceiver;
-
 @Component
 @RabbitListener(queues = "fanout.B")
 public class FanoutReceiverB {
 
-private static final Logger logger = LoggerFactory.getLogger(TopicReceiver.class);
+private static final Logger logger = LoggerFactory.getLogger(FanoutReceiverB.class);
 	
 	@RabbitHandler
 	public void process(String hello) {

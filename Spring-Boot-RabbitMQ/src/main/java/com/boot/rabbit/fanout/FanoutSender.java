@@ -6,12 +6,10 @@ import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.boot.rabbit.topic.TopicSender;
-
 @Component
 public class FanoutSender {
 
-	private static final Logger logger = LoggerFactory.getLogger(TopicSender.class);
+	private static final Logger logger = LoggerFactory.getLogger(FanoutReceiverC.class);
 
 	@Autowired
 	private AmqpTemplate rabbitTemplate;

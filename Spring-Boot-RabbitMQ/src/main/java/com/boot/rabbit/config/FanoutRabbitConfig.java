@@ -30,6 +30,12 @@ public class FanoutRabbitConfig {
 		return new FanoutExchange("fanoutExchange");
 	}
 
+	/**
+	 * 绑定队列到交换机
+	 * @param AMessage
+	 * @param fanoutExchange
+	 * @return
+	 */
 	@Bean
 	public Binding bindingExchangeA(Queue AMessage, FanoutExchange fanoutExchange) {
 		return BindingBuilder.bind(AMessage).to(fanoutExchange);

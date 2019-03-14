@@ -6,6 +6,8 @@ import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.boot.rabbit.config.TopicRabbitConfig;
+
 @Component
 public class TopicSender {
 
@@ -17,12 +19,12 @@ public class TopicSender {
 	public void send1() {
 	    String context = "hi, i am message 1";
 	    logger.info("Sender1 : " + context);
-	    rabbitTemplate.convertAndSend("exchange", "topic.message", context);
+	    rabbitTemplate.convertAndSend(TopicRabbitConfig.EXCHANGE, TopicRabbitConfig.MESSAGE_A, context);
 	}
 
 	public void send2() {
-	    String context = "hi, i am messages 2";
+	    String context = "hi, i am message 2";
 	    logger.info("Sender2 : " + context);
-	    rabbitTemplate.convertAndSend("exchange", "topic.messages", context);
+	    rabbitTemplate.convertAndSend(TopicRabbitConfig.EXCHANGE, TopicRabbitConfig.MESSAGE_B, context);
 	}
 }

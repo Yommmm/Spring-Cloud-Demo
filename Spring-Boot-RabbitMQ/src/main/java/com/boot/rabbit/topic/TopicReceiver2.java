@@ -6,8 +6,10 @@ import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
+import com.boot.rabbit.config.TopicRabbitConfig;
+
 @Component
-@RabbitListener(queues = "topic.messages")
+@RabbitListener(queues = TopicRabbitConfig.MESSAGE_B)
 public class TopicReceiver2 {
 
 	private static final Logger logger = LoggerFactory.getLogger(TopicReceiver2.class);
