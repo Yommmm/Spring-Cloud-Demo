@@ -16,7 +16,11 @@ public class HelloReceiver {
 	
 	@RabbitHandler
 	public void process(Map<String, String> hello) {
-		logger.info("Recevier1: " + hello.get("hello"));
+		try {
+			logger.info("Recevier1: " + hello.get("hello"));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 	
 }

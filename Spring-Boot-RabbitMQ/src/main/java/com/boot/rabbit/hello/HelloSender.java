@@ -42,7 +42,7 @@ public class HelloSender {
 		user.setName("AAA");
 		user.setAge("BBB");
 		user.setAddress("CCC");
-		rabbitTemplate.convertAndSend(RabbitConstant.HELLO_QUEUE, "");
+		rabbitTemplate.convertAndSend(RabbitConstant.HELLO_QUEUE, user);
 	}
 	
 }
