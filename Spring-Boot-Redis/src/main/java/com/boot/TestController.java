@@ -20,11 +20,14 @@ public class TestController {
 	@Autowired
 	private RedisTemplate<String, String> redisTemplate;
 	
+	@Autowired
+	private RedisTool redisTool;
+	
 	@GetMapping("/lock")
 	public void lock() {
-		if(null == UUID_FLAG && null == redisTemplate.opsForValue().get(LOCK_KEY)) {
+		if(null == redisTemplate.opsForValue().get(LOCK_KEY)) {
 			UUID_FLAG = UUID.randomUUID().toString();
-			redisTemplate.opsForValue().set(LOCK_KEY, UUID_FLAG, 60, TimeUnit.SECONDS);
+			redisTemplate.opsForValue().set("MMP_MMP_MMP_MMP_KEY", UUID_FLAG, 60, TimeUnit.SECONDS);
 		}
 	}
 	
@@ -34,6 +37,30 @@ public class TestController {
 			redisTemplate.delete(LOCK_KEY);
 			UUID_FLAG = null;
 		}
+	}
+	
+	@GetMapping("/testLockAndUnlock1")
+	public String testLockAndUnlock1() {
+		String validate = UUID.randomUUID().toString();
+		
+		if(redisTool.lock(LOCK_KEY, validate)) {
+			System.out.println("testLockAndUnlock1");
+			return "success";
+		}
+//		redisTool.unlock(LOCK_KEY, validate);
+		
+		return "fail";
+	}
+	
+	@GetMapping("/testLockAndUnlock2")
+	public String testLockAndUnlock2() {
+		String validate = UUID.randomUUID().toString();
+		
+		redisTool.lock(LOCK_KEY, validate);
+		System.out.println("testLockAndUnlock2");
+		redisTool.unlock(LOCK_KEY, validate);
+		
+		return "success";
 	}
 
 }
