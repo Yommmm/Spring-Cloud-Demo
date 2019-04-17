@@ -19,9 +19,8 @@ import com.boot.service.EmpService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
 
-@Api(value = "员工API")
+@Api(tags = "员工API")
 @RestController
 @RequestMapping("/boot/v2/emp")
 public class EmpController {
