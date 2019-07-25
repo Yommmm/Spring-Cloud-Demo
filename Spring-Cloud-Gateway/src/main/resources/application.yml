@@ -7,8 +7,11 @@ spring:
     
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true # 获取服务列表并进行路由
       routes:
-      - id: Spring-Boot-MyBatis
-        uri: lb://Spring-Boot-MyBatis
-        predicates:
-        - Path=/api-mybatis/**
+      - id: Cloud
+        uri: https://github.com/Yommmm/Spring-Cloud-Demo
+        predicates: # 断言判断，
+        - After=2018-01-20T06:06:06+08:00[Asia/Shanghai]
