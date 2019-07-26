@@ -9,9 +9,15 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true # 获取服务列表并进行路由
+          enabled: true # 获取服务列表并进行路由，默认关闭；开发环境打开（前后端联调需要），生产环境关闭
+#          lower-case-service-id: true # 支持小写的服务名，获取路由打开后才能开启 
       routes:
-      - id: Cloud
-        uri: https://github.com/Yommmm/Spring-Cloud-Demo
-        predicates: # 断言判断，
+#      - id: Cloud
+#        uri: https://github.com/Yommmm/Spring-Cloud-Demo
+#        predicates: # 断言判断
+#        - After=2018-01-20T06:06:06+08:00[Asia/Shanghai]
+      - id: api-wms
+        uri: lb://MICROSERVICE-ZLST-LMS-WMS
+        predicates: 
+        - Path= /warehouse/**
         - After=2018-01-20T06:06:06+08:00[Asia/Shanghai]
