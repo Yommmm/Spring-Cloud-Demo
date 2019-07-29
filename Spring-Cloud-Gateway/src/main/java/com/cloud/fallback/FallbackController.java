@@ -1,4 +1,4 @@
-package com.cloud.module.fallback;
+package com.cloud.fallback;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
