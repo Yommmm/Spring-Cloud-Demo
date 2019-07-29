@@ -20,4 +20,8 @@ spring:
         uri: lb://MICROSERVICE-ZLST-LMS-WMS
         predicates: 
         - Path= /warehouse/**
-        - After=2018-01-20T06:06:06+08:00[Asia/Shanghai]
+        filters:
+        - name: Retry # 重试过滤
+          args:
+            retries: 3
+            statuses: BAD_GATEWAY
