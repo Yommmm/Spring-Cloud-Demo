@@ -1,4 +1,4 @@
-package com.cloud.config.filter;
+/*package com.cloud.config.filter;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -58,3 +58,4 @@ public class CorsFilter implements Filter {
 	}
 
 }
+*/

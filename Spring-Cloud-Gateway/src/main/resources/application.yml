@@ -16,12 +16,25 @@ spring:
 #        uri: https://github.com/Yommmm/Spring-Cloud-Demo
 #        predicates: # 断言判断
 #        - After=2018-01-20T06:06:06+08:00[Asia/Shanghai]
-      - id: api-wms
-        uri: lb://MICROSERVICE-ZLST-LMS-WMS
+      - id: Spring-Boot-MyBatis
+        uri: lb://Spring-Boot-MyBatis
         predicates: 
-        - Path= /warehouse/**
+        - Path= /boot/v2/**
         filters:
-        - name: Retry # 重试过滤
+#        - name: Retry # 重试过滤
+#          args:
+#            retries: 3
+#            statuses: BAD_GATEWAY
+        - name: Hystrix
           args:
-            retries: 3
-            statuses: BAD_GATEWAY
+            name: fallbackcmd
+            fallbackUri: 'forward:/boot/v2/hystrix/fallback'
+
+hystrix: 
+  command: 
+    fallbackcmd: 
+      execution: 
+        isolation: 
+          thread: 
+            timeoutInMilliseconds: 3000
+  shareSecurityContext: true
