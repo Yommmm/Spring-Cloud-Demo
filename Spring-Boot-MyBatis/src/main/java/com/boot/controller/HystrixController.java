@@ -21,9 +21,4 @@ public class HystrixController {
 		return "success";
 	}
 	
-	@GetMapping("/fallback")
-	public String hystrixFallBack() {
-		return "降级成功";
-	}
-	
 }

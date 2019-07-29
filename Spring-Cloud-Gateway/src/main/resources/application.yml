@@ -28,7 +28,7 @@ spring:
         - name: Hystrix
           args:
             name: fallbackcmd
-            fallbackUri: 'forward:/boot/v2/hystrix/fallback'
+            fallbackUri: forward:/fallback
 
 hystrix: 
   command: 
