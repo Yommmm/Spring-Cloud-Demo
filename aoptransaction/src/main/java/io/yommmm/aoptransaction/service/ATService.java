@@ -21,10 +21,26 @@ public class ATService {
     @Autowired
     private ATRepository atRepository;
 
-    @Transactional
     @OptimisticLock
     public YY save(YY yy) {
         return atRepository.save(yy);
+    }
+
+    @Transactional
+    public YY testThisSave(YY yy) {
+        yy = atRepository.save(yy);
+
+        if(10 == yy.getAge()) {
+            throw new RuntimeException("ten years old");
+        }
+
+        return yy;
+    }
+
+    public YY testThis(YY yy) {
+        yy = testThisSave(yy);
+
+        return yy;
     }
 
 }

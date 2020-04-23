@@ -27,7 +27,7 @@ public class OptimisticLockAspect {
         pjp.proceed();
 
         if ("".equals(value)) {
-            throw new Exception("hehe");
+//            throw new RuntimeException("hehe");
         }
 
         log.info("success");

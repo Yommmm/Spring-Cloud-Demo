@@ -1,10 +1,9 @@
 package com.boot.mapper;
 
-import java.util.List;
-
+import com.boot.entity.Emp;
 import org.apache.ibatis.annotations.Select;
 
-import com.boot.entity.Emp;
+import java.util.List;
 
 /**
  * 可以在这里使用@Mapper
