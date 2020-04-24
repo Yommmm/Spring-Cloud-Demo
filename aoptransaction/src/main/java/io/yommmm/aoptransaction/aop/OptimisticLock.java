@@ -15,6 +15,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface OptimisticLock {
 
-    String value() default "";
+    String id() default "";
 
 }

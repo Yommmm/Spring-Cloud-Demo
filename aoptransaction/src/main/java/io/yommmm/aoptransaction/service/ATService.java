@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class ATService {
 
     @Autowired
-    private ATRepository atRepository;
+    public ATRepository atRepository;
 
     @OptimisticLock
     public YY save(YY yy) {

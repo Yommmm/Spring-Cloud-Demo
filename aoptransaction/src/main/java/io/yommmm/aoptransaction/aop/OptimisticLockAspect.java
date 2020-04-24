@@ -21,8 +21,10 @@ public class OptimisticLockAspect {
     @Around(value = "@annotation(OptimisticLock) && @annotation(optimisticLock)")
     @Transactional
     public void aspect(ProceedingJoinPoint pjp, OptimisticLock optimisticLock) throws Throwable {
-        String value = optimisticLock.value();
+        String value = optimisticLock.id();
         log.info("value is {}", value);
+
+        Object[] args = pjp.getArgs();
 
         pjp.proceed();
 
