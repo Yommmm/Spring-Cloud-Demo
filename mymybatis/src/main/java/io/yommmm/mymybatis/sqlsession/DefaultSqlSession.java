@@ -43,7 +43,7 @@ public class DefaultSqlSession implements SqlSession {
     @Override
     public <T> T getMapper(Class<T> type) {
         MapperProxy mp = new MapperProxy(this);
-        //给我一个接口，还你一个实现类
+        // 给我一个接口，还你一个实现类
         return (T) Proxy.newProxyInstance(type.getClassLoader(), new Class[]{type}, mp);
     }
 }
